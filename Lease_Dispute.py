@@ -45,33 +45,38 @@
 from requests import post
 from requests import codes
 import math
+import json
+
 try:
-    from intent import Loki_429
-    from intent import Loki_electricity_water_fees
-    from intent import Loki_429_tb1
-    from intent import Loki_425_tb3
-    from intent import Loki_Come_in
     from intent import Loki_Probe
     from intent import Loki_425
-    from intent import Loki_Security_Deposit
     from intent import Loki_425_tb1
-    from intent import Loki_425_tb2
+    from intent import Loki_425_tb2 
+    from intent import Loki_425_tb3
+    from intent import Loki_429
+    from intent import Loki_429_tb1
+    from intent import Loki_Security_Deposit
+    from intent import Loki_electricity_water_fees
+    from intent import Loki_Come_in
+    
 except:
-    from .intent import Loki_429
-    from .intent import Loki_electricity_water_fees
-    from .intent import Loki_429_tb1
-    from .intent import Loki_425_tb3
-    from .intent import Loki_Come_in
     from .intent import Loki_Probe
     from .intent import Loki_425
-    from .intent import Loki_Security_Deposit
     from .intent import Loki_425_tb1
-    from .intent import Loki_425_tb2
+    from .intent import Loki_425_tb2 
+    from .intent import Loki_425_tb3
+    from .intent import Loki_429
+    from .intent import Loki_429_tb1
+    from .intent import Loki_Security_Deposit
+    from .intent import Loki_electricity_water_fees
+    from .intent import Loki_Come_in    
 
+with open("account.info", encoding="utf-8") as f:
+    accountDICT = json.loads(f.read())
 
 LOKI_URL = "https://api.droidtown.co/Loki/BulkAPI/"
-USERNAME = ""
-LOKI_KEY = ""
+USERNAME = accountDICT["username"]
+LOKI_KEY = accountDICT["loki_key"]
 # 意圖過濾器說明
 # INTENT_FILTER = []        => 比對全部的意圖 (預設)
 # INTENT_FILTER = [intentN] => 僅比對 INTENT_FILTER 內的意圖
