@@ -86,6 +86,12 @@ class BotClient(discord.Client):
                                   請您與房東確認您是否真的有欠租，或是具有需負擔損害賠償責任的情事，
                                   如果雙方無法達成共識，建議您可以依鄉鎮市調解條例第10條第1項的規定向鄉、鎮、市公所調解委員會聲請調解，來維護雙方的權益。"""
                 
+                elif resultDICT[confirm_fees_BOOL] == True:
+                    responseSTR = """聽起來您的問題是關於水電費、網路費、瓦斯費等方面的爭議，......."""
+                    
+                elif resultDICT[confirm_comein_BOOL] == True:
+                    responseSTR = """聽起來您遇到的問題是關於房東任意進出您租屋處的問題，........"""
+                
                 await message.reply(responseSTR)
 
 
