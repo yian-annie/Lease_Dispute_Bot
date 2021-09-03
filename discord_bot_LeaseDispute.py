@@ -70,9 +70,9 @@ class BotClient(discord.Client):
                 #從這裡開始接上 NLU 模型
                 responseSTR = "我是預設的回應字串…你會看到我這串字，肯定是出了什麼錯！"
 
-                inputLIST = [msg]
-                filterLIST = []
-                resultDICT = botRunLoki(inputLIST,filterLIST)
+                
+        
+                resultDICT = botRunLoki(msg)
                 print("Result => {}".format(resultDICT))
 
                 mscDICT[message.author] = leaseTemplate
