@@ -8,6 +8,7 @@ import re
 
 from pprint import pprint
 from Lease_Dispute import runLoki
+from Lease_Dispute import botRunLoki
 
 logging.basicConfig(level=logging.CRITICAL)
 
@@ -71,12 +72,19 @@ class BotClient(discord.Client):
 
                 inputLIST = [msg]
                 filterLIST = []
-                resultDICT = botRunLoki(inputLIST, filterLIST)
+                resultDICT = botRunLoki(inputLIST,filterLIST)
                 print("Result => {}".format(resultDICT))
 
                 mscDICT[message.author] = leaseTemplate
                 
-                
+                if resultDICT[confirm_Security_Deposit_BOOL] == True:
+                    responseSTR = """押金的作用，是為了擔保您(承租人)在租賃關係中所生的租金債務或是損害賠償責任
+                                  因此，如果您沒有欠房東租金或是需要負擔損害賠償責任，
+                                  那麼在租賃關係消滅(例如租期屆滿或租賃契約終止)，且您返還租賃住宅時，房東就應該要將押金全數返還給您
+                                  。如果房東沒有依約返還押金，您可以到郵局寄發存證信函，定相當期限，請求房東在期限內返還押金
+                                  不過，若是您確實有欠租或需要負擔損害賠償責任的情形，房東是可以扣您的押金作為擔保的，所以如果有這方面的爭議問題，
+                                  請您與房東確認您是否真的有欠租，或是具有需負擔損害賠償責任的情事，
+                                  如果雙方無法達成共識，建議您可以依鄉鎮市調解條例第10條第1項的規定向鄉、鎮、市公所調解委員會聲請調解，來維護雙方的權益。"""
                 
                 await message.reply(responseSTR)
 

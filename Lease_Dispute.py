@@ -239,6 +239,15 @@ def testLoki(inputLIST, filterLIST):
     INPUT_LIMIT = 20
     for i in range(0, math.ceil(len(inputLIST) / INPUT_LIMIT)):
         resultDICT = runLoki(inputLIST[i*INPUT_LIMIT:(i+1)*INPUT_LIMIT], filterLIST)
+        
+def botRunLoki(inputSTR, intentLIST=[]):
+    punctuationPat = re.compile("[,\.\?:;，。？、：；\n]+")
+    inputLIST = punctuationPat.sub("\n", inputSTR).split("\n")
+    print(inputLIST)
+
+    resultDICT = runLoki(inputLIST, filterLIST=intentLIST)
+    return resultDICT
+
 
 
 if __name__ == "__main__":
