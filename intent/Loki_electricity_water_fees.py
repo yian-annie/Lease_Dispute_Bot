@@ -24,48 +24,48 @@ def debugInfo(inputSTR, utterance):
 
 def getResult(inputSTR, utterance, args, resultDICT):
     debugInfo(inputSTR, utterance)
-    resultDICT[confirm_fees_BOOL] = None
+    resultDICT["confirm_fees_BOOL"] = None
     
     if utterance == "Wifi費用":
-        resultDICT[confirm_fees_BOOL] = True
+        resultDICT["confirm_fees_BOOL"] = True
 
     if utterance == "[一度]5元":
-       resultDICT[confirm_fees_BOOL] = True
+       resultDICT["confirm_fees_BOOL"] = True
 
     if utterance == "[一度]6塊錢":
-       resultDICT[confirm_fees_BOOL] = True
+       resultDICT["confirm_fees_BOOL"] = True
 
     if utterance == "[一度][5.6塊]":
-        resultDICT[confirm_fees_BOOL] = True
+        resultDICT["confirm_fees_BOOL"] = True
 
     if utterance == "wifi費用":
-        resultDICT[confirm_fees_BOOL] = True
+        resultDICT["confirm_fees_BOOL"] = True
 
     if utterance == "依台電度數計價":
-        resultDICT[confirm_fees_BOOL] = True
+        resultDICT["confirm_fees_BOOL"] = True
 
     if utterance == "台電的度數":
-        resultDICT[confirm_fees_BOOL] = True
+        resultDICT["confirm_fees_BOOL"] = True
 
     if utterance == "天然氣費":
-        resultDICT[confirm_fees_BOOL] = True
+        resultDICT["confirm_fees_BOOL"] = True
 
     if utterance == "每度5元":
-        resultDICT[confirm_fees_BOOL] = True
+        resultDICT["confirm_fees_BOOL"] = True
 
     if utterance == "水費":
-        resultDICT[confirm_fees_BOOL] = True
+        resultDICT["confirm_fees_BOOL"] = True
 
     if utterance == "瓦斯費":
-        resultDICT[confirm_fees_BOOL] = True
+        resultDICT["confirm_fees_BOOL"] = True
 
     if utterance == "網路費":
-        resultDICT[confirm_fees_BOOL] = True
+        resultDICT["confirm_fees_BOOL"] = True
 
     if utterance == "自來水費":
-        resultDICT[confirm_fees_BOOL] = True
+        resultDICT["confirm_fees_BOOL"] = True
 
     if utterance == "電費":
-        resultDICT[confirm_fees_BOOL] = True
+        resultDICT["confirm_fees_BOOL"] = True
 
     return resultDICT

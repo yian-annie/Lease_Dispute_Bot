@@ -24,27 +24,27 @@ def debugInfo(inputSTR, utterance):
 
 def getResult(inputSTR, utterance, args, resultDICT):
     debugInfo(inputSTR, utterance)
-    resultDICT[confirm_comein_BOOL] = None
+    resultDICT["confirm_comein_BOOL"] = None
     
     if utterance == "[房東][任意]進出[我][租屋處]":
-        resultDICT[confirm_comein_BOOL] = True
+        resultDICT["confirm_comein_BOOL"] = True
 
     if utterance == "[房東][擅自]帶[人]進來[我][房間]":
-        resultDICT[confirm_comein_BOOL] = True
+        resultDICT["confirm_comein_BOOL"] = True
 
     if utterance == "[房東][隨便]進來[我][房間]":
-        resultDICT[confirm_comein_BOOL] = True
+        resultDICT["confirm_comein_BOOL"] = True
 
     if utterance == "[房東][隨意]進入[我][房間]":
-        resultDICT[confirm_comein_BOOL] = True
+        resultDICT["confirm_comein_BOOL"] = True
 
     if utterance == "[房東]未經[我]同意就帶[人]進來":
-        resultDICT[confirm_comein_BOOL] = True
+        resultDICT["confirm_comein_BOOL"] = True
 
     if utterance == "[房東]未經同意就[任意]進入[我][房間]":
-        resultDICT[confirm_comein_BOOL] = True
+        resultDICT["confirm_comein_BOOL"] = True
 
     if utterance == "[房東]趁[我]不在帶[人]來看屋":
-        resultDICT[confirm_comein_BOOL] = True
+        resultDICT["confirm_comein_BOOL"] = True
 
     return resultDICT

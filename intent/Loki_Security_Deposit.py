@@ -24,65 +24,65 @@ def debugInfo(inputSTR, utterance):
 
 def getResult(inputSTR, utterance, args, resultDICT):
     debugInfo(inputSTR, utterance)
-    resultDICT[confirm_Security_Deposit_BOOL] = None
+    resultDICT["confirm_Security_Deposit_BOOL"] = None
    
     if utterance == "[我]想要拿回[我]的押金":
-        resultDICT[confirm_Security_Deposit_BOOL] = True
+        resultDICT["confirm_Security_Deposit_BOOL"] = True
         
    
     if utterance == "[我]的押金被房東扣了":
-        resultDICT[confirm_Security_Deposit_BOOL] = True
+        resultDICT["confirm_Security_Deposit_BOOL"] = True
 
    
     if utterance == "[故意]不退還押金":
-       resultDICT[confirm_Security_Deposit_BOOL] = True
+       resultDICT["confirm_Security_Deposit_BOOL"] = True
 
    
     if utterance == "[遲遲]未收到押金":
-        resultDICT[confirm_Security_Deposit_BOOL] = True
+        resultDICT["confirm_Security_Deposit_BOOL"] = True
 
    
     if utterance == "不退[我]押金":
-        resultDICT[confirm_Security_Deposit_BOOL] = True
+        resultDICT["confirm_Security_Deposit_BOOL"] = True
 
    
     if utterance == "不還[我]押金":
-        resultDICT[confirm_Security_Deposit_BOOL] = True
+        resultDICT["confirm_Security_Deposit_BOOL"] = True
 
    
     if utterance == "亂扣[我]押金":
-        resultDICT[confirm_Security_Deposit_BOOL] = True
+        resultDICT["confirm_Security_Deposit_BOOL"] = True
         
    
     if utterance == "吃掉[我]的押金":
-        resultDICT[confirm_Security_Deposit_BOOL] = True
+        resultDICT["confirm_Security_Deposit_BOOL"] = True
 
   
     if utterance == "惡意亂扣[我]押金":
-        resultDICT[confirm_Security_Deposit_BOOL] = True
+        resultDICT["confirm_Security_Deposit_BOOL"] = True
 
    
     if utterance == "扣[我][兩個月]押金":
-        resultDICT[confirm_Security_Deposit_BOOL] = True
+        resultDICT["confirm_Security_Deposit_BOOL"] = True
 
    
     if utterance == "扣[我]押金":
-        resultDICT[confirm_Security_Deposit_BOOL] = True
+        resultDICT["confirm_Security_Deposit_BOOL"] = True
 
    
     if utterance == "把押金拿回來":
-        resultDICT[confirm_Security_Deposit_BOOL] = True
+        resultDICT["confirm_Security_Deposit_BOOL"] = True
 
     
     if utterance == "押金還在房東那":
-        resultDICT[confirm_Security_Deposit_BOOL] = True
+        resultDICT["confirm_Security_Deposit_BOOL"] = True
 
    
     if utterance == "拿回[我]的押金":
-        resultDICT[confirm_Security_Deposit_BOOL] = True
+        resultDICT["confirm_Security_Deposit_BOOL"] = True
 
    
     if utterance == "拿回押金":
-        resultDICT[confirm_Security_Deposit_BOOL] = True
+        resultDICT["confirm_Security_Deposit_BOOL"] = True
 
     return resultDICT
