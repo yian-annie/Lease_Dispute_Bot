@@ -70,14 +70,12 @@ class BotClient(discord.Client):
                 #從這裡開始接上 NLU 模型
                 responseSTR = "我是預設的回應字串…你會看到我這串字，肯定是出了什麼錯！"
 
-                
-        
                 resultDICT = botRunLoki(msg)
                 print("Result => {}".format(resultDICT))
 
                 mscDICT[message.author] = leaseTemplate
                 
-                if resultDICT[confirm_Security_Deposit_BOOL] == True:
+                if "confirm_Security_Deposit_BOOL" in resultDICT and resultDICT["confirm_Security_Deposit_BOOL"] == True:
                     responseSTR = """聽起來您的問題與押金有關。其實呢，押金的作用，是為了擔保您(承租人)在租賃關係中所生的租金債務或是損害賠償責任。
                                   因此，如果您沒有欠房東租金或是需要負擔損害賠償責任，那麼在租賃關係消滅(例如租期屆滿或租賃契約終止)，且您返還租賃住宅時，房東就應該要將押金全數返還給您。
                                   如果房東沒有依約返還押金，您可以到郵局寄發存證信函，定相當期限，請求房東在期限內返還押金。
@@ -85,7 +83,7 @@ class BotClient(discord.Client):
                                   請您與房東確認您是否真的有欠租，或是具有需負擔損害賠償責任的情事(例如您是否有損壞屋內的家具或其他物品)，
                                   如果雙方無法達成共識，建議您可以依租賃住宅條例第16條的規定，向直轄市或縣（市）政府聲請調處，來維護雙方的權益，而且無須付調處費喔。""".replace(" ", "").replace("\n", "")
                 
-                elif resultDICT[confirm_fees_BOOL] == True:
+                elif "confirm_fees_BOOL" in resultDICT and resultDICT["confirm_fees_BOOL"] == True:
                     responseSTR = """聽起來您的問題是關於水電費、網路費、瓦斯費等方面的爭議，根據內政部頒布的「住宅租賃契約應約定及不得約定事項」，
                                   原則上水費、電費、瓦斯費、網路費、管理費等費用，基於契約自由原則，都可以由雙方約定某一方負擔，所以請您注意您的租賃契約書面上關於這些費用的約定。
                                   不過，如果在租賃期間因不可歸責於租賃雙方之事由，致管理費增加者，承租人就增加部分之金額，以負擔百分之十為限。
@@ -93,11 +91,11 @@ class BotClient(discord.Client):
                                   所以房東的電費收取只要不超過現在台電規定的6.41元/度，就不算違法。但畢竟電費收取是代收費用，房東不可以此營利，
                                   如果您發現房東有超收行為，您可以向當地縣(市)政府的地政局(處)、消保官檢舉。""".replace(" ", "").replace("\n", "")
                     
-                elif resultDICT[confirm_comein_BOOL] == True:
+                elif "confirm_comein_BOOL" in resultDICT and resultDICT["confirm_comein_BOOL"] == True:
                     responseSTR = """聽起來您遇到的問題是關於房東任意進出您租屋處的問題。其實當房屋出租之後，房東(出租人)雖然仍擁有房屋的所有權，
                                   但房客(承租人)已經取得了完整的使用收益的權限，所以如果房東想要進入出租房屋時，必須經過房客的同意，否則不可任意進出。
                                   如果房東未經您的同意，就擅自進入您的租屋處的話，恐怕會觸犯刑法第306條「無故侵入他人住宅罪」，也可能構成民法第195條第1項個人隱私權的侵權行為。
-                                  若您向房東反應或溝通後未獲改善，建議您可以直接報警處理""".replace(" ", "").replace("\n", "")
+                                  若您向房東反應或溝通後未獲改善，建議您可以直接報警處理。""".replace(" ", "").replace("\n", "")
                 
                 await message.reply(responseSTR)
 
