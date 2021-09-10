@@ -24,28 +24,26 @@ def debugInfo(inputSTR, utterance):
 
 def getResult(inputSTR, utterance, args, resultDICT):
     debugInfo(inputSTR, utterance)
+    resultDICT["confirm425tb2_BOOL"] = None
+    
     if utterance == "[他]有給[我]鑰匙":
-        # write your code here
-        pass
+        resultDICT["confirm425tb2_BOOL"] = True
 
     if utterance == "[他]有跟[我]說大門密碼":
-        # write your code here
-        pass
-
+        resultDICT["confirm425tb2_BOOL"] = True
+        
     if utterance == "已經交付了":
-        # write your code here
-        pass
+        resultDICT["confirm425tb2_BOOL"] = True
 
     if utterance == "有":
-        # write your code here
-        pass
+        if inputSTR == utterance:
+            resultDICT["confirm425tb2_BOOL"] = True        
 
     if utterance == "有交付":
-        # write your code here
-        pass
+        resultDICT["confirm425tb2_BOOL"] = True
 
     if utterance == "沒有":
-        # write your code here
-        pass
+        if inputSTR == utterance:
+            resultDICT["confirm425tb2_BOOL"] = False        
 
     return resultDICT

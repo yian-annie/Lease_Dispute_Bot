@@ -24,32 +24,30 @@ def debugInfo(inputSTR, utterance):
 
 def getResult(inputSTR, utterance, args, resultDICT):
     debugInfo(inputSTR, utterance)
+    resultDICT["confirm425tb1_BOOL"] = None
+    
     if utterance == "[只有]口頭說好":
-        # write your code here
-        pass
+        resultDICT["confirm425tb1_BOOL"] = None
 
     if utterance == "否":
-        # write your code here
-        pass
+        if inputSTR == utterance:
+            resultDICT["confirm425tb1_BOOL"] = False
 
     if utterance == "已經簽約了":
-        # write your code here
-        pass
+        resultDICT["confirm425tb1_BOOL"] = True
 
     if utterance == "是":
-        # write your code here
-        pass
+        if inputSTR == utterance:
+            resultDICT["confirm425tb1_BOOL"] = True       
 
     if utterance == "有書面簽約":
-        # write your code here
-        pass
+        resultDICT["confirm425tb1_BOOL"] = True
 
     if utterance == "有說好了但沒有寫[契約]":
-        # write your code here
-        pass
+        resultDICT["confirm425tb1_BOOL"] = None
 
     if utterance == "沒有":
-        # write your code here
-        pass
+        if inputSTR == utterance:
+            resultDICT[contract] = False
 
     return resultDICT

@@ -24,48 +24,45 @@ def debugInfo(inputSTR, utterance):
 
 def getResult(inputSTR, utterance, args, resultDICT):
     debugInfo(inputSTR, utterance)
+    resultDICT["confirm425tb3_BOOL"] = None
+    
     if utterance == "不清楚":
-        # write your code here
-        pass
+        if inputSTR == utterance:
+            resultDICT["confirm425tb3_BOOL"] = None        
 
     if utterance == "不知道":
-        # write your code here
-        pass
+        if inputSTR == utterance:
+            resultDICT["confirm425tb3_BOOL"] = None        
 
     if utterance == "否":
-        # write your code here
-        pass
+        if inputSTR == utterance:
+            resultDICT["confirm425tb3_BOOL"] = False        
 
     if utterance == "已經成交了":
-        # write your code here
-        pass
+        resultDICT["confirm425tb3_BOOL"] = True        
 
     if utterance == "已經賣掉了":
-        # write your code here
-        pass
+        resultDICT["confirm425tb3_BOOL"] = True        
 
     if utterance == "已經辦理所有權移轉登記了":
-        # write your code here
-        pass
+        resultDICT["confirm425tb3_BOOL"] = True        
 
     if utterance == "已經過戶了":
-        # write your code here
-        pass
+        resultDICT["confirm425tb3_BOOL"] = True
 
     if utterance == "是":
-        # write your code here
-        pass
+        if inputSTR == utterance:
+            resultDICT["confirm425tb3_BOOL"] = True        
 
     if utterance == "有":
-        # write your code here
-        pass
+        if inputSTR == utterance:
+            resultDICT["confirm425tb3_BOOL"] = True        
 
     if utterance == "有辦好過戶了":
-        # write your code here
-        pass
+        resultDICT["confirm425tb3_BOOL"] = True      
 
     if utterance == "還沒有":
-        # write your code here
-        pass
+        if inputSTR == utterance:
+            resultDICT["confirm425tb3_BOOL"] = False        
 
     return resultDICT

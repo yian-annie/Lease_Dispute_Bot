@@ -24,100 +24,78 @@ def debugInfo(inputSTR, utterance):
 
 def getResult(inputSTR, utterance, args, resultDICT):
     debugInfo(inputSTR, utterance)
+    resultDICT["comfirm425_BOOL"] = None
+    
     if utterance == "[我][板橋]租的[房子]被房東賣掉了":
-        # write your code here
-        pass
+        resultDICT["comfirm425_BOOL"] = True
 
     if utterance == "[我][現在]住的[地方]被賣了":
-        # write your code here
-        pass
+        resultDICT["comfirm425_BOOL"] = True
 
     if utterance == "[我][現在]住的[地方]被賣掉了":
-        # write your code here
-        pass
+        resultDICT["comfirm425_BOOL"] = True
 
     if utterance == "[我][現在]租的[地方]被賣了":
-        # write your code here
-        pass
+        resultDICT["comfirm425_BOOL"] = True
 
     if utterance == "[我][現在]租的[地方]被賣掉了":
-        # write your code here
-        pass
+        resultDICT["comfirm425_BOOL"] = True
 
     if utterance == "[我][現在]租的[房子]被房東賣了":
-        # write your code here
-        pass
+        resultDICT["comfirm425_BOOL"] = True
 
     if utterance == "[我][現在]租的[房子]被房東賣掉了":
-        # write your code here
-        pass
+        resultDICT["comfirm425_BOOL"] = True
 
     if utterance == "[我]的[租屋處]被莫名其妙賣掉":
-        # write your code here
-        pass
+        resultDICT["comfirm425_BOOL"] = True
 
     if utterance == "[我]的[租屋處]被賣了":
-        # write your code here
-        pass
+        resultDICT["comfirm425_BOOL"] = True
 
     if utterance == "[我]的[租屋處]被賣掉了":
-        # write your code here
-        pass
+        resultDICT["comfirm425_BOOL"] = True
 
     if utterance == "[我]租的[房子]被賣掉了":
-        # write your code here
-        pass
+        resultDICT["comfirm425_BOOL"] = True
 
     if utterance == "[房子]被賣給[別人]了":
-        # write your code here
-        pass
+        resultDICT["comfirm425_BOOL"] = True
 
     if utterance == "房東把[我][板橋]租的[房子]賣了":
-        # write your code here
-        pass
+        resultDICT["comfirm425_BOOL"] = True
 
     if utterance == "房東把[我][板橋]租的[房子]賣掉了":
-        # write your code here
-        pass
+        resultDICT["comfirm425_BOOL"] = True
 
     if utterance == "房東把[我]租的[房子]賣了":
-        # write your code here
-        pass
+        resultDICT["comfirm425_BOOL"] = True
 
     if utterance == "房東把[我]租的[房子]賣掉了":
-        # write your code here
-        pass
+        resultDICT["comfirm425_BOOL"] = True
 
     if utterance == "房東說[他]要把[我][現在]住的[房子]賣掉":
-        # write your code here
-        pass
+        resultDICT["comfirm425_BOOL"] = True
 
     if utterance == "房東說要賣屋":
-        # write your code here
-        pass
+        resultDICT["comfirm425_BOOL"] = True
 
     if utterance == "房東說要賣掉[我][現在]住的[地方]":
-        # write your code here
-        pass
+        resultDICT["comfirm425_BOOL"] = True
 
     if utterance == "房東說要賣掉[我]的[租屋處]":
-        # write your code here
-        pass
+        resultDICT["comfirm425_BOOL"] = True
 
     if utterance == "把[我][現在]住的[地方]賣了":
-        # write your code here
-        pass
+        resultDICT["comfirm425_BOOL"] = True
 
     if utterance == "把[我][現在]住的[地方]賣掉了":
-        # write your code here
-        pass
+        resultDICT["comfirm425_BOOL"] = True
 
     if utterance == "把[我][現在]租的[房子]賣了":
-        # write your code here
-        pass
+        resultDICT["comfirm425_BOOL"] = True
 
     if utterance == "把[我][現在]租的[房子]賣掉了":
-        # write your code here
-        pass
+        resultDICT["comfirm425_BOOL"] = True
 
     return resultDICT
