@@ -15,10 +15,12 @@ logging.basicConfig(level=logging.CRITICAL)
 # <取得多輪對話資訊>
 client = discord.Client()
 
-leaseTemplate ={"contractStandBOOL": None, #425_tb1確認租賃契約成立
-                "movedInBOOL":None,        #425_tb2租賃物已交付承租人占有
-                "houseSoldBOOL": None,     #425_tb3所有權已讓與第三人
+leaseTemplate ={"confirm425tb1_BOOL":None, #425_tb1確認租賃契約成立
+                "confirm425tb2_BOOL":None, #425_tb2租賃物已交付承租人占有
+                "confirm425tb3_BOOL":None, #425_tb3所有權已讓與第三人
                 "updatetime":"datetime"}
+fixTemplate = {"confirm429tb1_BOOL":None,             #429_tb1確認房東為修繕義務人
+               "updatetime":"datetime"}
 
 mscDICT = {
     # "userID": {creditTemplate, mortgageTemplate}
