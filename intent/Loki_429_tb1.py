@@ -24,20 +24,20 @@ def debugInfo(inputSTR, utterance):
 
 def getResult(inputSTR, utterance, args, resultDICT):
     debugInfo(inputSTR, utterance)
+    resultDICT["confirm429tb1_BOOL"] = None
+    
     if utterance == "[上面]寫房東要負責":
-        # write your code here
-        pass
+        resultDICT["confirm429tb1_BOOL"] = True
 
     if utterance == "有":
-        # write your code here
-        pass
+        if inputSTR == utterance:
+            resultDICT["confirm429tb1_BOOL"] = True        
 
     if utterance == "沒有":
-        # write your code here
-        pass
+        if inputSTR == utterance:
+            resultDICT["confirm429tb1_BOOL"] = False        
 
     if utterance == "約好房東要負責修繕":
-        # write your code here
-        pass
+        resultDICT["confirm429tb1_BOOL"] = True
 
     return resultDICT
