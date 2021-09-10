@@ -15,11 +15,12 @@ logging.basicConfig(level=logging.CRITICAL)
 # <取得多輪對話資訊>
 client = discord.Client()
 
-leaseTemplate ={"confirm425tb1_BOOL":None, #425_tb1確認租賃契約成立
-                "confirm425tb2_BOOL":None, #425_tb2租賃物已交付承租人占有
-                "confirm425tb3_BOOL":None, #425_tb3所有權已讓與第三人
-                "updatetime":"datetime"}
-fixTemplate = {"confirm429tb1_BOOL":None,             #429_tb1確認房東為修繕義務人
+leaseTemplate = {"confirm425tb1_BOOL":None, #425_tb1確認租賃契約成立
+                 "confirm425tb2_BOOL":None, #425_tb2租賃物已交付承租人占有
+                 "confirm425tb3_BOOL":None, #425_tb3所有權已讓與第三人
+                 "updatetime":"datetime"}
+
+fixTemplate = {"confirm429tb1_BOOL":None,  #429_tb1確認房東為修繕義務人
                "updatetime":"datetime"}
 
 mscDICT = {
@@ -75,7 +76,7 @@ class BotClient(discord.Client):
                 resultDICT = botRunLoki(msg)
                 print("Result => {}".format(resultDICT))
 
-                mscDICT[message.author] = leaseTemplate
+                mscDICT[message.author] = leaseTemplate #處理425的多輪對話部分
                 
                 if "confirm_Security_Deposit_BOOL" in resultDICT and resultDICT["confirm_Security_Deposit_BOOL"] == True:
                     responseSTR = """聽起來您的問題與押金有關。其實呢，押金的作用，是為了擔保您(承租人)在租賃關係中所生的租金債務或是損害賠償責任。
