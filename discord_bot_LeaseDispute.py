@@ -76,9 +76,11 @@ class BotClient(discord.Client):
                     timeDIFF = nowDATETIME - mscDICT[message.author]["updatetime"]
                     if timeDIFF.total_seconds() >= 300:   #有講過話，但與上次差超過5分鐘(視為沒有講過話)
                         mscDICT[message.author] = {"confirm425_BOOL":None,
-                                                   leaseTemplate,
+                                                   "confirm425tb1_BOOL":None,
+                                                   "confirm425tb2_BOOL":None,
+                                                   "confirm425tb3_BOOL":None,
                                                    "confirm429_BOOL":None,
-                                                   fixTemplate,
+                                                   "confirm429tb1_BOOL":None,
                                                    "confirm_Security_Deposit_BOOL":None,
                                                    "confirm_fees_BOOL":None,
                                                    "confirm_comein_BOOL":None}
@@ -88,9 +90,11 @@ class BotClient(discord.Client):
                         await message.reply("我還在等您的回覆喔")  
                 else:  #沒有講過話
                     mscDICT[message.author] = {"confirm425_BOOL":None,
-                                               leaseTemplate,
+                                               "confirm425tb1_BOOL":None,
+                                               "confirm425tb2_BOOL":None,
+                                               "confirm425tb3_BOOL":None,
                                                "confirm429_BOOL":None,
-                                               fixTemplate,
+                                               "confirm429tb1_BOOL":None,
                                                "confirm_Security_Deposit_BOOL":None,
                                                "confirm_fees_BOOL":None,
                                                "confirm_comein_BOOL":None}
