@@ -25,7 +25,7 @@ leaseTemplate = {"confirm425_BOOL":None,
                  "confirm_fees_BOOL":None,
                  "confirm_comein_BOOL":None,
                  "updatetime":"datetime",
-                 "finish":"yet"}
+                 "complete":False}
 
 
 mscDICT = {
@@ -91,6 +91,9 @@ class BotClient(discord.Client):
             else: #開始處理正式對話
                 #從這裡開始接上 NLU 模型
                 replySTR = "我是預設的回應字串…你會看到我這串字，肯定是出了什麼錯！"
+                
+                #先處理多輪對話的問題
+                if 
 
                 resultDICT = botRunLoki(msgSTR)
                 print("Result => {}".format(resultDICT))
