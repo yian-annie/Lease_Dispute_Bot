@@ -15,13 +15,18 @@ logging.basicConfig(level=logging.CRITICAL)
 # <取得多輪對話資訊>
 client = discord.Client()
 
-leaseTemplate = {"confirm425tb1_BOOL":None, #425_tb1確認租賃契約成立
-                 "confirm425tb2_BOOL":None, #425_tb2租賃物已交付承租人占有
-                 "confirm425tb3_BOOL":None, #425_tb3所有權已讓與第三人
-                 "updatetime":"datetime"}
+leaseTemplate = {"confirm425_BOOL":None,
+                 "confirm425tb1_BOOL":None,
+                 "confirm425tb2_BOOL":None,
+                 "confirm425tb3_BOOL":None,
+                 "confirm429_BOOL":None,
+                 "confirm429tb1_BOOL":None,
+                 "confirm_Security_Deposit_BOOL":None,
+                 "confirm_fees_BOOL":None,
+                 "confirm_comein_BOOL":None,
+                 "updatetime":"datetime",
+                 "finish":"yet"}
 
-fixTemplate = {"confirm429tb1_BOOL":None,  #429_tb1確認房東為修繕義務人
-               "updatetime":"datetime"}
 
 mscDICT = {
     # "userID": {creditTemplate, mortgageTemplate}
@@ -71,33 +76,16 @@ class BotClient(discord.Client):
                 await message.reply('pong pong')
                 
             elif msgSTR in ["哈囉","嗨","你好","您好","在嗎","Hi","hi","Hello","hello"]: #在使用者以問候開啟對話時，計算對話時間差
-                if message.author in mscDICT.keys():  #有講過話
+                if message.author in mscDICT.keys():  #有講過話(判斷對話時間差)
                     nowDATETIME = datetime.datetime.now()
                     timeDIFF = nowDATETIME - mscDICT[message.author]["updatetime"]
-                    if timeDIFF.total_seconds() >= 300:   #有講過話，但與上次差超過5分鐘(視為沒有講過話)
-                        mscDICT[message.author] = {"confirm425_BOOL":None,
-                                                   "confirm425tb1_BOOL":None,
-                                                   "confirm425tb2_BOOL":None,
-                                                   "confirm425tb3_BOOL":None,
-                                                   "confirm429_BOOL":None,
-                                                   "confirm429tb1_BOOL":None,
-                                                   "confirm_Security_Deposit_BOOL":None,
-                                                   "confirm_fees_BOOL":None,
-                                                   "confirm_comein_BOOL":None}
-                        
+                    if timeDIFF.total_seconds() >= 300:   #有講過話，但與上次差超過5分鐘(視為沒有講過話，刷新template)
+                        mscDICT[message.author] = leaseTemplate
                         await message.reply("嗨嗨，您好，我是您的租賃法律問題小幫手，請問您遇到什麼問題了呢？")
-                    else:  #有講過話，而且還沒超過5分鐘
+                    else:  #有講過話，而且還沒超過5分鐘(就繼續上次的對話)
                         await message.reply("我還在等您的回覆喔")  
-                else:  #沒有講過話
-                    mscDICT[message.author] = {"confirm425_BOOL":None,
-                                               "confirm425tb1_BOOL":None,
-                                               "confirm425tb2_BOOL":None,
-                                               "confirm425tb3_BOOL":None,
-                                               "confirm429_BOOL":None,
-                                               "confirm429tb1_BOOL":None,
-                                               "confirm_Security_Deposit_BOOL":None,
-                                               "confirm_fees_BOOL":None,
-                                               "confirm_comein_BOOL":None}
+                else:  #沒有講過話(給他一個新的template)
+                    mscDICT[message.author] = leaseTemplate
                     await message.reply("嗨嗨，您好，我是您的租賃法律問題小幫手，請問您遇到什麼問題了呢？")
             
             else: #開始處理正式對話
