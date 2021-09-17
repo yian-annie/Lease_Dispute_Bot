@@ -188,7 +188,8 @@ class BotClient(discord.Client):
                         replySTR = "根據民法第425條第1項的規定，您的租賃契約對於租賃物的新所有人(新屋主)仍然繼續存在。屋主成為新房東，您可以依原本的租賃契約繼續就租賃物為使用收益，不用擔心。"
                         mscDICT[message.author]["complete"] = True #結束對話
                         await message.reply(replySTR)
-
+                
+                #(二)429修繕義務的問題        
                 elif mscDICT[message.author]["confirm429_BOOL"] == True: #429的第二輪對話
                     lokiResultDICT = botRunLoki(msgSTR,filterLIST = ["429_tb1"]) #filterLIST只跑429_tb1
                     mscDICT[message.author]["confirm429tb1_BOOL"] = lokiResultDICT["confirm429tb1_BOOL"]
@@ -203,9 +204,11 @@ class BotClient(discord.Client):
                         mscDICT[message.author]["complete"] = True #結束對話
                         await message.reply(replySTR)
                         
-                elif mscDICT[message.author]["complete"] == True:
-                    replySTR = "謝謝您使用本bot，希望有幫到您。"
-                    
+                else:
+                    replySTR = """Sorry,我目前可能還沒有辦法處理您的問題。
+                               如果是關於租屋處被賣掉、修繕問題、押金問題、水電費問題、房東任意進出租處的問題，您可以試著用別的問句問我。
+                               如果是其他租賃問題的話，我現在還不會處理，建議您可以上崔媽媽基金會的網站查詢，不好意思。"""
+                    await message.reply(replySTR)
                 
 
 
