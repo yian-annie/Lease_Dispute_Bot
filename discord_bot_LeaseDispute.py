@@ -157,7 +157,7 @@ class BotClient(discord.Client):
                     
                     
                 
-                elif mscDICT[message.author]["confirm425_BOOL"] == True: #425的第二輪對話
+                elif mscDICT[message.author]["confirm425_BOOL"] == True and mscDICT[message.author]["confirm425tb1_BOOL"] != True: #425的第二輪對話
                     lokiResultDICT = botRunLoki(msgSTR,filterLIST = ["425_tb1"]) #filterLIST只跑425_tb1
                     mscDICT[message.author]["confirm425tb1_BOOL"] = lokiResultDICT["confirm425tb1_BOOL"]
                     if mscDICT[message.author]["confirm425tb1_BOOL"] == False:
@@ -171,7 +171,7 @@ class BotClient(discord.Client):
                         replySTR = "請問房東是否已將房屋交付給您？例如已經將鑰匙交給您，或是將大門密碼鎖的密碼告知您。" #往下問425_tb2
                         await message.reply(replySTR)
                         
-                elif mscDICT[message.author]["confirm425tb1_BOOL"] == True: #425的第三輪對話
+                elif mscDICT[message.author]["confirm425tb1_BOOL"] == True and mscDICT[message.author]["confirm425tb2_BOOL"] != True: #425的第三輪對話
                     lokiResultDICT = botRunLoki(msgSTR,filterLIST = ["425_tb2"]) #filterLIST只跑425_tb2
                     mscDICT[message.author]["confirm425tb2_BOOL"] = lokiResultDICT["confirm425tb2_BOOL"]
                     if mscDICT[message.author]["confirm425tb2_BOOL"] == False:
@@ -185,7 +185,7 @@ class BotClient(discord.Client):
                         replySTR = "請問房東是否已經辦理所有權移轉登記，確實將租賃物(您租屋處)的所有權過戶給他人？" #往下問425_tb3
                         await message.reply(replySTR)
                         
-                elif mscDICT[message.author]["confirm425tb2_BOOL"] == True: #425的第四輪對話
+                elif mscDICT[message.author]["confirm425tb2_BOOL"] == True and mscDICT[message.author]["confirm425tb3_BOOL"] != True: #425的第四輪對話
                     lokiResultDICT = botRunLoki(msgSTR,filterLIST = ["425_tb3"]) #filterLIST只跑425_tb3
                     mscDICT[message.author]["confirm425tb3_BOOL"] = lokiResultDICT["confirm425tb3_BOOL"]
                     if mscDICT[message.author]["confirm425tb3_BOOL"] == False:
@@ -194,7 +194,7 @@ class BotClient(discord.Client):
                         await message.reply(replySTR)
                         
                     elif mscDICT[message.author]["confirm425tb3_BOOL"] == True:
-                        replySTR = "根據民法第425條第1項的規定，您的租賃契約對於租賃物的新所有人(新屋主)仍然繼續存在。屋主成為新房東，您可以依原本的租賃契約繼續就租賃物為使用收益，不用擔心。"
+                        replySTR = "根據民法第425條第1項的規定，您的租賃契約對於租賃物的新所有人(新屋主)仍然繼續存在。新的屋主會成為新房東(新的出租人)，您可以依原本的租賃契約繼續就租賃物為使用收益，不用擔心。"
                         mscDICT[message.author]["complete"] = True #結束對話
                         await message.reply(replySTR)
                 
