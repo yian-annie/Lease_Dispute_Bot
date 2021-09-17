@@ -169,8 +169,15 @@ class BotClient(discord.Client):
                         replySTR = "請問房東是否已經辦理所有權移轉登記，確實將租賃物(您租屋處)的所有權過戶給他人？" #往下問425_tb3
                         
                         
-                 
-
+                elif mscDICT[message.author]["confirm425tb2_BOOL"] == True: #425的第四輪對話
+                    lokiResultDICT = botRunLoki(msgSTR,filterLIST = ["425_tb3"]) #filterLIST只跑425_3
+                    mscDICT[message.author]["confirm425tb3_BOOL"] = lokiResultDICT["confirm425tb3_BOOL"]
+                    if mscDICT[message.author]["confirm425tb3_BOOL"] == False:
+                        replySTR = "出租人(房東)尚未將租賃物(您的租處)的所有權讓與給他人房東仍然租賃所有權人，您可以繼續向原房東主張租賃關係中的一切權利。不用擔心喔。"
+                        mscDICT[message.author]["complete"] = True #結束對話
+                    elif mscDICT[message.author]["confirm425tb3_BOOL"] == True:
+                        replySTR = "根據民法第425條第1項的規定，您的租賃契約對於租賃物的新所有人(新屋主)仍然繼續存在。屋主成為新房東，您可以依原本的租賃契約繼續就租賃物為使用收益，不用擔心。"
+                        mscDICT[message.author]["complete"] = True #結束對話
 
             
 
