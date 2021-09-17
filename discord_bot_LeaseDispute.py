@@ -194,7 +194,8 @@ class BotClient(discord.Client):
                         await message.reply(replySTR)
                         
                     elif mscDICT[message.author]["confirm425tb3_BOOL"] == True:
-                        replySTR = "根據民法第425條第1項的規定，您的租賃契約對於租賃物的新所有人(新屋主)仍然繼續存在。新的屋主會成為新房東(新的出租人)，您可以依原本的租賃契約繼續就租賃物為使用收益，不用擔心。"
+                        replySTR = """根據民法第425條第1項的規定，您的租賃契約對於租賃物的新所有人(新屋主)仍然繼續存在。
+                        新的屋主會成為您的新房東(新的出租人)，您可以依原本的租賃契約繼續就租賃物為使用收益，不用擔心。""".replace(" ","").replace("\n","")
                         mscDICT[message.author]["complete"] = True #結束對話
                         await message.reply(replySTR)
                 
@@ -204,7 +205,8 @@ class BotClient(discord.Client):
                     mscDICT[message.author]["confirm429tb1_BOOL"] = lokiResultDICT["confirm429tb1_BOOL"]
                     if mscDICT[message.author]["confirm429tb1_BOOL"] == False:
                         replySTR = """根據民法第429條第1項的規定，如果您與房東之間沒有特別約定由您負擔修繕義務，則出租人(房東)應負擔修繕租賃物的義務。
-                                   所以您可以定相當期限催告房東來修。如果房東沒有在您訂的期限內處理的話，依據民法第430條，您可以自行修繕，之後再向房東請求償還費用，或是直接在租金中扣除修繕費用。"""
+                                   所以您可以定相當期限催告房東來修。如果房東沒有在您訂的期限內處理的話，
+                                   依據民法第430條，您可以自行修繕，之後再向房東請求償還費用，或是直接在租金中扣除修繕費用。""".replace(" ","").replace("\n","")
                         mscDICT[message.author]["complete"] = True #結束對話
                         await message.reply(replySTR)
                     
