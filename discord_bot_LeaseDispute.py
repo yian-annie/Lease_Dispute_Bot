@@ -118,6 +118,7 @@ class BotClient(discord.Client):
                                     請您與房東確認您是否真的有欠租，或是具有需負擔損害賠償責任的情事(例如您是否有損壞屋內的家具或其他物品)，
                                     如果雙方無法達成共識，建議您可以依租賃住宅條例第16條的規定，向直轄市或縣（市）政府聲請調處，來維護雙方的權益，而且無須付調處費喔。""".replace(" ", "").replace("\n", "")
                         mscDICT[message.author]["complete"] = True #對話結束
+                        await message.reply(replySTR)
                         
                     elif mscDICT[message.author]["confirm_fees_BOOL"] == True:
                         replySTR = """聽起來您的問題是關於水電費、網路費、瓦斯費等方面的爭議，根據內政部頒布的「住宅租賃契約應約定及不得約定事項」，
@@ -127,6 +128,7 @@ class BotClient(discord.Client):
                                    所以房東的電費收取只要不超過現在台電規定的6.41元/度，就不算違法。但畢竟電費收取是代收費用，房東不可以此營利，
                                    如果您發現房東有超收行為，您可以向當地縣(市)政府的地政局(處)、消保官檢舉。""".replace(" ", "").replace("\n", "")
                         mscDICT[message.author]["complete"] = True #對話結束
+                        await message.reply(replySTR)
                         
                     elif mscDICT[message.author]["confirm_comein_BOOL"] == True:
                         replySTR = """聽起來您遇到的問題是關於房東任意進出您租屋處的問題。其實當房屋出租之後，房東(出租人)雖然仍擁有房屋的所有權，
@@ -134,15 +136,17 @@ class BotClient(discord.Client):
                                    如果房東未經您的同意，就擅自進入您的租屋處的話，恐怕會觸犯刑法第306條「無故侵入他人住宅罪」，也可能構成民法第195條第1項個人隱私權的侵權行為。
                                    若您向房東反應或溝通後未獲改善，建議您可以直接報警處理。""".replace(" ", "").replace("\n", "")
                         mscDICT[message.author]["complete"] = True #對話結束
+                        await message.reply(replySTR)
                         
                     #開始處理需要多輪對話的租賃問題
                     #(一)425買賣不破租賃的問題
                     elif mscDICT[message.author]["confirm425_BOOL"] == True: #確認問題為425
                         replySTR = "請問您與房東是否已經簽訂租賃契約？" #往下問425_tb1
+                        await message.reply(replySTR)
                         
                     elif mscDICT[message.author]["confirm429_BOOL"] == True: #確認問題為429
                         replySTR = "請問您的租賃契約上，有沒有特別規定必須由承租人(您)負擔修繕義務？例如要求東西壞了必須由您自行修理。" #往下問429_tb1
-                
+                        await message.reply(replySTR)
                 
                 elif mscDICT[message.author]["confirm425_BOOL"] == True: #425的第二輪對話
                     lokiResultDICT = botRunLoki(msgSTR,filterLIST = ["425_tb1"]) #filterLIST只跑425_tb1
@@ -152,10 +156,12 @@ class BotClient(discord.Client):
                                    但若您在準備或商議締約的過程中，房東有就訂約重要事項為惡意隱匿或不實說明，或有其他違反誠實信用方法之情形，
                                    您可依民法第245條之1之規定向房東請求信賴利益損害賠償。""".replace(" ", "").replace("\n", "")
                         mscDICT[message.author]["complete"] = True #對話結束
-                    
+                        await message.reply(replySTR)
+                        
                     elif mscDICT[message.author]["confirm425tb1_BOOL"] == False:
                         replySTR = "請問房東是否已將房屋交付給您？例如已經將鑰匙交給您，或是將大門密碼鎖的密碼告知您。" #往下問425_tb2
-                
+                        await message.reply(replySTR)
+                        
                 elif mscDICT[message.author]["confirm425tb1_BOOL"] == True: #425的第三輪對話
                     lokiResultDICT = botRunLoki(msgSTR,filterLIST = ["425_tb2"]) #filterLIST只跑425_tb2
                     mscDICT[message.author]["confirm425tb2_BOOL"] = lokiResultDICT["confirm425tb2_BOOL"]
@@ -164,10 +170,11 @@ class BotClient(discord.Client):
                                    但您與房東之間之租賃契約已經成立，若房東請您搬離，
                                    您可以向房東主張租賃契約之債務不履行，請求房東負履行利益損害賠償責任。""".replace(" ","").replace("\n","")
                         mscDICT[message.author]["complete"] = True #結束對話
-                    
+                        await message.reply(replySTR)
+                        
                     elif mscDICT[message.author]["confirm425tb2_BOOL"] == True:
                         replySTR = "請問房東是否已經辦理所有權移轉登記，確實將租賃物(您租屋處)的所有權過戶給他人？" #往下問425_tb3
-                        
+                        await message.reply(replySTR)
                         
                 elif mscDICT[message.author]["confirm425tb2_BOOL"] == True: #425的第四輪對話
                     lokiResultDICT = botRunLoki(msgSTR,filterLIST = ["425_tb3"]) #filterLIST只跑425_3
@@ -175,12 +182,18 @@ class BotClient(discord.Client):
                     if mscDICT[message.author]["confirm425tb3_BOOL"] == False:
                         replySTR = "出租人(房東)尚未將租賃物(您的租處)的所有權讓與給他人房東仍然租賃所有權人，您可以繼續向原房東主張租賃關係中的一切權利。不用擔心喔。"
                         mscDICT[message.author]["complete"] = True #結束對話
+                        await message.reply(replySTR)
+                        
                     elif mscDICT[message.author]["confirm425tb3_BOOL"] == True:
                         replySTR = "根據民法第425條第1項的規定，您的租賃契約對於租賃物的新所有人(新屋主)仍然繼續存在。屋主成為新房東，您可以依原本的租賃契約繼續就租賃物為使用收益，不用擔心。"
                         mscDICT[message.author]["complete"] = True #結束對話
+                        await message.reply(replySTR)
 
             
-
+                elif mscDICT[message.author]["complete"] == True:
+                    replySTR = "謝謝您使用本bot，希望有幫到您。"
+                    
+                
 
 
 
