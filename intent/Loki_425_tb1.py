@@ -48,6 +48,6 @@ def getResult(inputSTR, utterance, args, resultDICT):
 
     if utterance == "沒有":
         if inputSTR == utterance:
-            resultDICT[contract] = False
+            resultDICT["confirm425tb1_BOOL"] = False
 
     return resultDICT
