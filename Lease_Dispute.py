@@ -241,12 +241,11 @@ def testLoki(inputLIST, filterLIST):
     for i in range(0, math.ceil(len(inputLIST) / INPUT_LIMIT)):
         resultDICT = runLoki(inputLIST[i*INPUT_LIMIT:(i+1)*INPUT_LIMIT], filterLIST)
         
-def botRunLoki(inputSTR, intentLIST=[]):
+def botRunLoki(inputSTR, filterLIST=[]):
     punctuationPat = re.compile("[,\.\?:;，。？、：；\n]+")
     inputLIST = punctuationPat.sub("\n", inputSTR).split("\n")
-    print(inputLIST)
 
-    resultDICT = runLoki(inputLIST, filterLIST=intentLIST)
+    resultDICT = runLoki(inputLIST, filterLIST)
     return resultDICT
 
 

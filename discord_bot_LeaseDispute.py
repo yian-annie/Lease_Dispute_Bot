@@ -167,7 +167,7 @@ class BotClient(discord.Client):
                         mscDICT[message.author]["complete"] = True #對話結束
                         await message.reply(replySTR)
                         
-                    elif mscDICT[message.author]["confirm425tb1_BOOL"] == False:
+                    elif mscDICT[message.author]["confirm425tb1_BOOL"] == True:
                         replySTR = "請問房東是否已將房屋交付給您？例如已經將鑰匙交給您，或是將大門密碼鎖的密碼告知您。" #往下問425_tb2
                         await message.reply(replySTR)
                         
