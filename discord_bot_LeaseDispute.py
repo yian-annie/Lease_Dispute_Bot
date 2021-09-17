@@ -177,7 +177,7 @@ class BotClient(discord.Client):
                         await message.reply(replySTR)
                         
                 elif mscDICT[message.author]["confirm425tb2_BOOL"] == True: #425的第四輪對話
-                    lokiResultDICT = botRunLoki(msgSTR,filterLIST = ["425_tb3"]) #filterLIST只跑425_3
+                    lokiResultDICT = botRunLoki(msgSTR,filterLIST = ["425_tb3"]) #filterLIST只跑425_tb3
                     mscDICT[message.author]["confirm425tb3_BOOL"] = lokiResultDICT["confirm425tb3_BOOL"]
                     if mscDICT[message.author]["confirm425tb3_BOOL"] == False:
                         replySTR = "出租人(房東)尚未將租賃物(您的租處)的所有權讓與給他人房東仍然租賃所有權人，您可以繼續向原房東主張租賃關係中的一切權利。不用擔心喔。"
@@ -189,7 +189,20 @@ class BotClient(discord.Client):
                         mscDICT[message.author]["complete"] = True #結束對話
                         await message.reply(replySTR)
 
-            
+                elif mscDICT[message.author]["confirm429_BOOL"] == True: #429的第二輪對話
+                    lokiResultDICT = botRunLoki(msgSTR,filterLIST = ["429_tb1"]) #filterLIST只跑429_tb1
+                    mscDICT[message.author]["confirm429tb1_BOOL"] = lokiResultDICT["confirm429tb1_BOOL"]
+                    if mscDICT[message.author]["confirm429tb1_BOOL"] == False:
+                        replySTR = """根據民法第429條第1項的規定，如果您與房東之間沒有特別約定由您負擔修繕義務，則出租人(房東)應負擔修繕租賃物的義務。
+                                   所以您可以定相當期限催告房東來修。如果房東沒有在您訂的期限內處理的話，依據民法第430條，您可以自行修繕，之後再向房東請求償還費用，或是直接在租金中扣除修繕費用。"""
+                        mscDICT[message.author]["complete"] = True #結束對話
+                        await message.reply(replySTR)
+                    
+                    elif mscDICT[message.author]["confirm429tb1_BOOL"] == True:
+                        replySTR = "請注意，您的租賃契約上有約定由您自行負擔修繕義務，所以您必須自行修繕您的租賃物喔。"
+                        mscDICT[message.author]["complete"] = True #結束對話
+                        await message.reply(replySTR)
+                        
                 elif mscDICT[message.author]["complete"] == True:
                     replySTR = "謝謝您使用本bot，希望有幫到您。"
                     
