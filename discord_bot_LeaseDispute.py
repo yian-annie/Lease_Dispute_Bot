@@ -139,14 +139,23 @@ class BotClient(discord.Client):
                         await message.reply(replySTR)
                         
                     #開始處理需要多輪對話的租賃問題
-                    #(一)425買賣不破租賃的問題
+                    #425的第一輪對話
                     elif mscDICT[message.author]["confirm425_BOOL"] == True: #確認問題為425
                         replySTR = "請問您與房東是否已經簽訂租賃契約？" #往下問425_tb1
                         await message.reply(replySTR)
-                        
+                    
+                    #429的第一輪對話   
                     elif mscDICT[message.author]["confirm429_BOOL"] == True: #確認問題為429
                         replySTR = "請問您的租賃契約上，有沒有特別規定必須由承租人(您)負擔修繕義務？例如要求東西壞了必須由您自行修理。" #往下問429_tb1
                         await message.reply(replySTR)
+                        
+                    else: #如果無法辨識是什麼問題，就給予統一的回覆
+                        replySTR = """Sorry,我目前可能還沒有辦法處理您的問題。
+                                   如果是關於租屋處被賣掉、修繕問題、押金問題、水電費問題、房東任意進出租處的問題，您可以試著用別的問句問我。
+                                   如果是其他租賃問題的話，我現在還不會處理，建議您可以上崔媽媽基金會的網站查詢，不好意思。""".replace(" ", "").replace("\n", "")
+                        await message.reply(replySTR)
+                    
+                    
                 
                 elif mscDICT[message.author]["confirm425_BOOL"] == True: #425的第二輪對話
                     lokiResultDICT = botRunLoki(msgSTR,filterLIST = ["425_tb1"]) #filterLIST只跑425_tb1
@@ -204,11 +213,7 @@ class BotClient(discord.Client):
                         mscDICT[message.author]["complete"] = True #結束對話
                         await message.reply(replySTR)
                         
-                else:
-                    replySTR = """Sorry,我目前可能還沒有辦法處理您的問題。
-                               如果是關於租屋處被賣掉、修繕問題、押金問題、水電費問題、房東任意進出租處的問題，您可以試著用別的問句問我。
-                               如果是其他租賃問題的話，我現在還不會處理，建議您可以上崔媽媽基金會的網站查詢，不好意思。"""
-                    await message.reply(replySTR)
+               
                 
 
 
