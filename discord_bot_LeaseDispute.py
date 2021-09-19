@@ -122,6 +122,7 @@ class BotClient(discord.Client):
                         mscDICT[message.author]["complete"] = True #對話結束
                         await message.reply(replySTR)
                         del mscDICT[message.author] #對話結束，清空mscDICT的user資料
+                        await message.reply("謝謝您使用本Bot，希望我有幫到您，祝您有個美好的一天！")
                         
                     elif mscDICT[message.author]["confirm_fees_BOOL"] == True:
                         replySTR = """聽起來您的問題是關於水電費、網路費、瓦斯費等方面的爭議，根據內政部頒布的「住宅租賃契約應約定及不得約定事項」，
@@ -133,6 +134,7 @@ class BotClient(discord.Client):
                         mscDICT[message.author]["complete"] = True #對話結束
                         await message.reply(replySTR)
                         del mscDICT[message.author] #對話結束，清空mscDICT的user資料
+                        await message.reply("謝謝您使用本Bot，希望我有幫到您，祝您有個美好的一天！")
                         
                     elif mscDICT[message.author]["confirm_comein_BOOL"] == True:
                         replySTR = """聽起來您遇到的問題是關於房東任意進出您租屋處的問題。其實當房屋出租之後，房東(出租人)雖然仍擁有房屋的所有權，
@@ -142,6 +144,7 @@ class BotClient(discord.Client):
                         mscDICT[message.author]["complete"] = True #對話結束
                         await message.reply(replySTR)
                         del mscDICT[message.author] #對話結束，清空mscDICT的user資料
+                        await message.reply("謝謝您使用本Bot，希望我有幫到您，祝您有個美好的一天！")
                         
                     #開始處理需要多輪對話的租賃問題
                     #425的第一輪對話
@@ -172,6 +175,7 @@ class BotClient(discord.Client):
                         mscDICT[message.author]["complete"] = True #對話結束
                         await message.reply(replySTR)
                         del mscDICT[message.author] #對話結束，清空mscDICT的user資料
+                        await message.reply("謝謝您使用本Bot，希望我有幫到您，祝您有個美好的一天！")
                         
                     elif mscDICT[message.author]["confirm425tb1_BOOL"] == True:
                         replySTR = "請問房東是否已將房屋交付給您？例如已經將鑰匙交給您，或是將大門密碼鎖的密碼告知您。" #往下問425_tb2
@@ -187,6 +191,7 @@ class BotClient(discord.Client):
                         mscDICT[message.author]["complete"] = True #結束對話
                         await message.reply(replySTR)
                         del mscDICT[message.author] #對話結束，清空mscDICT的user資料
+                        await message.reply("謝謝您使用本Bot，希望我有幫到您，祝您有個美好的一天！")
                         
                     elif mscDICT[message.author]["confirm425tb2_BOOL"] == True:
                         replySTR = "請問房東是否已經辦理所有權移轉登記，確實將租賃物(您租屋處)的所有權過戶給他人？" #往下問425_tb3
@@ -200,6 +205,7 @@ class BotClient(discord.Client):
                         mscDICT[message.author]["complete"] = True #結束對話
                         await message.reply(replySTR)
                         del mscDICT[message.author] #對話結束，清空mscDICT的user資料
+                        await message.reply("謝謝您使用本Bot，希望我有幫到您，祝您有個美好的一天！")
                         
                     elif mscDICT[message.author]["confirm425tb3_BOOL"] == True:
                         replySTR = """根據民法第425條第1項的規定，您的租賃契約對於租賃物的新所有人(新屋主)仍然繼續存在。
@@ -207,6 +213,7 @@ class BotClient(discord.Client):
                         mscDICT[message.author]["complete"] = True #結束對話
                         await message.reply(replySTR)
                         del mscDICT[message.author] #對話結束，清空mscDICT的user資料
+                        await message.reply("謝謝您使用本Bot，希望我有幫到您，祝您有個美好的一天！")
                 
                 #(二)429修繕義務的問題        
                 elif mscDICT[message.author]["confirm429_BOOL"] == True: #429的第二輪對話
@@ -219,12 +226,14 @@ class BotClient(discord.Client):
                         mscDICT[message.author]["complete"] = True #結束對話
                         await message.reply(replySTR)
                         del mscDICT[message.author] #對話結束，清空mscDICT的user資料
+                        await message.reply("謝謝您使用本Bot，希望我有幫到您，祝您有個美好的一天！")
                     
                     elif mscDICT[message.author]["confirm429tb1_BOOL"] == True:
                         replySTR = "請注意，您的租賃契約上有約定由您自行負擔修繕義務，所以您必須自行修繕您的租賃物喔。"
                         mscDICT[message.author]["complete"] = True #結束對話
                         await message.reply(replySTR)
                         del mscDICT[message.author] #對話結束，清空mscDICT的user資料
+                        await message.reply("謝謝您使用本Bot，希望我有幫到您，祝您有個美好的一天！")
                
                 
 
