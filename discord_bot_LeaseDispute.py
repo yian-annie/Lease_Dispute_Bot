@@ -87,6 +87,7 @@ class BotClient(discord.Client):
                         await message.reply("我還在等您的回覆喔")  
                 else:  #沒有講過話(給他一個新的template)
                     mscDICT[message.author] = leaseTemplate
+                    mscDICT[message.author]["updatetime"] = datetime.datetime.now() #記錄開啟對話的時間
                     await message.reply("嗨嗨，您好，我是您的租賃法律問題小幫手，請問您遇到什麼問題了呢？")
             
             else: #開始處理正式對話
