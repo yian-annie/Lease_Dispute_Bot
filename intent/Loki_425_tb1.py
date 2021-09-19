@@ -43,9 +43,6 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "有書面簽約":
         resultDICT["confirm425tb1_BOOL"] = True
 
-    if utterance == "有說好了但沒有寫[契約]":
-        resultDICT["confirm425tb1_BOOL"] = None
-
     if utterance == "沒有":
         if inputSTR == utterance:
             resultDICT["confirm425tb1_BOOL"] = False
