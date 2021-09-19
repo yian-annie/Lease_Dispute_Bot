@@ -121,6 +121,7 @@ class BotClient(discord.Client):
                                     如果雙方無法達成共識，建議您可以依租賃住宅條例第16條的規定，向直轄市或縣（市）政府聲請調處，來維護雙方的權益，而且無須付調處費喔。""".replace(" ", "").replace("\n", "")
                         mscDICT[message.author]["complete"] = True #對話結束
                         await message.reply(replySTR)
+                        del mscDICT[message.author] #對話結束，清空mscDICT的user資料
                         
                     elif mscDICT[message.author]["confirm_fees_BOOL"] == True:
                         replySTR = """聽起來您的問題是關於水電費、網路費、瓦斯費等方面的爭議，根據內政部頒布的「住宅租賃契約應約定及不得約定事項」，
@@ -131,6 +132,7 @@ class BotClient(discord.Client):
                                    如果您發現房東有超收行為，您可以向當地縣(市)政府的地政局(處)、消保官檢舉。""".replace(" ", "").replace("\n", "")
                         mscDICT[message.author]["complete"] = True #對話結束
                         await message.reply(replySTR)
+                        del mscDICT[message.author] #對話結束，清空mscDICT的user資料
                         
                     elif mscDICT[message.author]["confirm_comein_BOOL"] == True:
                         replySTR = """聽起來您遇到的問題是關於房東任意進出您租屋處的問題。其實當房屋出租之後，房東(出租人)雖然仍擁有房屋的所有權，
@@ -139,6 +141,7 @@ class BotClient(discord.Client):
                                    若您向房東反應或溝通後未獲改善，建議您可以直接報警處理。""".replace(" ", "").replace("\n", "")
                         mscDICT[message.author]["complete"] = True #對話結束
                         await message.reply(replySTR)
+                        del mscDICT[message.author] #對話結束，清空mscDICT的user資料
                         
                     #開始處理需要多輪對話的租賃問題
                     #425的第一輪對話
@@ -168,6 +171,7 @@ class BotClient(discord.Client):
                                    您可依民法第245條之1之規定向房東請求信賴利益損害賠償。""".replace(" ", "").replace("\n", "")
                         mscDICT[message.author]["complete"] = True #對話結束
                         await message.reply(replySTR)
+                        del mscDICT[message.author] #對話結束，清空mscDICT的user資料
                         
                     elif mscDICT[message.author]["confirm425tb1_BOOL"] == True:
                         replySTR = "請問房東是否已將房屋交付給您？例如已經將鑰匙交給您，或是將大門密碼鎖的密碼告知您。" #往下問425_tb2
@@ -182,6 +186,7 @@ class BotClient(discord.Client):
                                    您可以向房東主張租賃契約之債務不履行，請求房東負履行利益損害賠償責任。""".replace(" ","").replace("\n","")
                         mscDICT[message.author]["complete"] = True #結束對話
                         await message.reply(replySTR)
+                        del mscDICT[message.author] #對話結束，清空mscDICT的user資料
                         
                     elif mscDICT[message.author]["confirm425tb2_BOOL"] == True:
                         replySTR = "請問房東是否已經辦理所有權移轉登記，確實將租賃物(您租屋處)的所有權過戶給他人？" #往下問425_tb3
@@ -194,12 +199,14 @@ class BotClient(discord.Client):
                         replySTR = "出租人(房東)尚未將租賃物(您的租處)的所有權讓與給他人房東仍然租賃所有權人，您可以繼續向原房東主張租賃關係中的一切權利。不用擔心喔。"
                         mscDICT[message.author]["complete"] = True #結束對話
                         await message.reply(replySTR)
+                        del mscDICT[message.author] #對話結束，清空mscDICT的user資料
                         
                     elif mscDICT[message.author]["confirm425tb3_BOOL"] == True:
                         replySTR = """根據民法第425條第1項的規定，您的租賃契約對於租賃物的新所有人(新屋主)仍然繼續存在。
                         新的屋主會成為您的新房東(新的出租人)，您可以依原本的租賃契約繼續就租賃物為使用收益，不用擔心。""".replace(" ","").replace("\n","")
                         mscDICT[message.author]["complete"] = True #結束對話
                         await message.reply(replySTR)
+                        del mscDICT[message.author] #對話結束，清空mscDICT的user資料
                 
                 #(二)429修繕義務的問題        
                 elif mscDICT[message.author]["confirm429_BOOL"] == True: #429的第二輪對話
@@ -211,12 +218,13 @@ class BotClient(discord.Client):
                                    依據民法第430條，您可以自行修繕，之後再向房東請求償還費用，或是直接在租金中扣除修繕費用。""".replace(" ","").replace("\n","")
                         mscDICT[message.author]["complete"] = True #結束對話
                         await message.reply(replySTR)
+                        del mscDICT[message.author] #對話結束，清空mscDICT的user資料
                     
                     elif mscDICT[message.author]["confirm429tb1_BOOL"] == True:
                         replySTR = "請注意，您的租賃契約上有約定由您自行負擔修繕義務，所以您必須自行修繕您的租賃物喔。"
                         mscDICT[message.author]["complete"] = True #結束對話
                         await message.reply(replySTR)
-                        
+                        del mscDICT[message.author] #對話結束，清空mscDICT的user資料
                
                 
 
