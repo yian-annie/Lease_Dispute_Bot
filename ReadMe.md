@@ -1,12 +1,12 @@
-# Lease Dispute Bot 租賃糾紛簡易法律諮詢機器人
+# Lease_Dispute_Bot 租賃糾紛簡易法律諮詢機器人
 ### 在外租屋遇到租賃糾紛不知如何解決嗎 ？
 ### 別擔心，您的租賃法律問題小幫手已上線 ！
-##### 您只需向Lease Dispute Bot說明您遇到的問題，Bot就會以白話文的方式提供您法律建議
+##### 您只需向Lease_Dispute_Bot說明您遇到的問題，Bot就會以白話文的方式提供您法律建議
 ##### 沒有看不懂的法律用語！以一般日常生活對話即可溝通！
 
 ------------
 
-### Lease Dispute Bot 可以解決的問題
+### Lease_Dispute_Bot 可以解決的問題
 - 押金問題
 - 水電費、網路費、瓦斯費問題
 - 房東任意進出房客租處
@@ -42,7 +42,7 @@
 #### STEP 5 ：匯入ref檔
 在建立意圖的下面，按**選擇檔案**，匯入全部的ref檔
 
-(記得先從github上將Lease Dispute Bot 的資料夾整個clone下來喔)
+(記得先從github上將Lease_Dispute_Bot 的資料夾整個clone下來喔)
 
 然後按**讀取意圖**
 ![匯入ref檔](https://github.com/yian-annie/Lease_Dispute_Bot/blob/main/media/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202021-09-20%20131234.png?raw=true)
