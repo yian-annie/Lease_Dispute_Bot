@@ -78,7 +78,7 @@
 在 Application 裡，左邊切換到 Bot 的分頁
 ![Add Bot1](https://github.com/yian-annie/Lease_Dispute_Bot/blob/main/media/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202021-09-20%20131723.png?raw=true)
 
-按下**藍色**那個**[Add Bot]**，並設定它的名字
+按下**藍色**那個**Add Bot**，並設定它的名字
 ![Add Bot2](https://github.com/yian-annie/Lease_Dispute_Bot/blob/main/media/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202021-09-20%20131751.png?raw=true)
 
 #### STEP 3 ：取得Bot的Token
