@@ -167,74 +167,89 @@ class BotClient(discord.Client):
                 
                 elif mscDICT[message.author]["confirm425_BOOL"] == True and mscDICT[message.author]["confirm425tb1_BOOL"] != True: #425的第二輪對話
                     lokiResultDICT = botRunLoki(msgSTR,filterLIST = ["425_tb1"]) #filterLIST只跑425_tb1
-                    mscDICT[message.author]["confirm425tb1_BOOL"] = lokiResultDICT["confirm425tb1_BOOL"]
-                    if mscDICT[message.author]["confirm425tb1_BOOL"] == False:
-                        replySTR = """您與出租人(房東)之租賃關係尚未正式成立，無法主張買賣不破租賃。
-                                   但若您在準備或商議締約的過程中，房東有就訂約重要事項為惡意隱匿或不實說明，或有其他違反誠實信用方法之情形，
-                                   您可依民法第245條之1之規定向房東請求信賴利益損害賠償。""".replace(" ", "").replace("\n", "")
-                        mscDICT[message.author]["complete"] = True #對話結束
-                        await message.reply(replySTR)
-                        del mscDICT[message.author] #對話結束，清空mscDICT的user資料
-                        await message.reply("謝謝您使用本Bot，希望我有幫到您，祝您有個美好的一天！")
+                    if "confirm425tb1_BOOL" in lokiResultDICT:
+                        mscDICT[message.author]["confirm425tb1_BOOL"] = lokiResultDICT["confirm425tb1_BOOL"]
+                        if mscDICT[message.author]["confirm425tb1_BOOL"] == False:
+                            replySTR = """您與出租人(房東)之租賃關係尚未正式成立，無法主張買賣不破租賃。
+                                       但若您在準備或商議締約的過程中，房東有就訂約重要事項為惡意隱匿或不實說明，或有其他違反誠實信用方法之情形，
+                                       您可依民法第245條之1之規定向房東請求信賴利益損害賠償。""".replace(" ", "").replace("\n", "")
+                            mscDICT[message.author]["complete"] = True #對話結束
+                            await message.reply(replySTR)
+                            del mscDICT[message.author] #對話結束，清空mscDICT的user資料
+                            await message.reply("謝謝您使用本Bot，希望我有幫到您，祝您有個美好的一天！")
                         
-                    elif mscDICT[message.author]["confirm425tb1_BOOL"] == True:
-                        replySTR = "請問房東是否已將房屋交付給您？例如已經將鑰匙交給您，或是將大門密碼鎖的密碼告知您。" #往下問425_tb2
+                        elif mscDICT[message.author]["confirm425tb1_BOOL"] == True:
+                            replySTR = "請問房東是否已將房屋交付給您？例如已經將鑰匙交給您，或是將大門密碼鎖的密碼告知您。" #往下問425_tb2
+                            await message.reply(replySTR)
+                    else: #聽不懂
+                        replySTR = "抱歉，我有點不太懂您的意思，可以請您換一個說法再說一遍嗎？謝謝"
                         await message.reply(replySTR)
                         
                 elif mscDICT[message.author]["confirm425tb1_BOOL"] == True and mscDICT[message.author]["confirm425tb2_BOOL"] != True: #425的第三輪對話
                     lokiResultDICT = botRunLoki(msgSTR,filterLIST = ["425_tb2"]) #filterLIST只跑425_tb2
-                    mscDICT[message.author]["confirm425tb2_BOOL"] = lokiResultDICT["confirm425tb2_BOOL"]
-                    if mscDICT[message.author]["confirm425tb2_BOOL"] == False:
-                        replySTR = """出租人(房東)尚未將租賃物交付給您，無法主張買賣不破租賃。
-                                   但您與房東之間之租賃契約已經成立，若房東請您搬離，
-                                   您可以向房東主張租賃契約之債務不履行，請求房東負履行利益損害賠償責任。""".replace(" ","").replace("\n","")
-                        mscDICT[message.author]["complete"] = True #結束對話
-                        await message.reply(replySTR)
-                        del mscDICT[message.author] #對話結束，清空mscDICT的user資料
-                        await message.reply("謝謝您使用本Bot，希望我有幫到您，祝您有個美好的一天！")
+                    if "confirm425tb2_BOOL" in lokiResultDICT:
+                        mscDICT[message.author]["confirm425tb2_BOOL"] = lokiResultDICT["confirm425tb2_BOOL"]
+                        if mscDICT[message.author]["confirm425tb2_BOOL"] == False:
+                            replySTR = """出租人(房東)尚未將租賃物交付給您，無法主張買賣不破租賃。
+                                       但您與房東之間之租賃契約已經成立，若房東請您搬離，
+                                       您可以向房東主張租賃契約之債務不履行，請求房東負履行利益損害賠償責任。""".replace(" ","").replace("\n","")
+                            mscDICT[message.author]["complete"] = True #結束對話
+                            await message.reply(replySTR)
+                            del mscDICT[message.author] #對話結束，清空mscDICT的user資料
+                            await message.reply("謝謝您使用本Bot，希望我有幫到您，祝您有個美好的一天！")
                         
-                    elif mscDICT[message.author]["confirm425tb2_BOOL"] == True:
-                        replySTR = "請問房東是否已經辦理所有權移轉登記，確實將租賃物(您租屋處)的所有權過戶給他人？" #往下問425_tb3
+                        elif mscDICT[message.author]["confirm425tb2_BOOL"] == True:
+                            replySTR = "請問房東是否已經辦理所有權移轉登記，確實將租賃物(您租屋處)的所有權過戶給他人？" #往下問425_tb3
+                            await message.reply(replySTR)
+                    else: #聽不懂
+                        replySTR = "抱歉，我有點不太懂您的意思，可以請您換一個說法再說一遍嗎？謝謝"
                         await message.reply(replySTR)
                         
                 elif mscDICT[message.author]["confirm425tb2_BOOL"] == True and mscDICT[message.author]["confirm425tb3_BOOL"] != True: #425的第四輪對話
                     lokiResultDICT = botRunLoki(msgSTR,filterLIST = ["425_tb3"]) #filterLIST只跑425_tb3
-                    mscDICT[message.author]["confirm425tb3_BOOL"] = lokiResultDICT["confirm425tb3_BOOL"]
-                    if mscDICT[message.author]["confirm425tb3_BOOL"] == False:
-                        replySTR = "出租人(房東)尚未將租賃物(您的租處)的所有權讓與給他人房東仍然租賃所有權人，您可以繼續向原房東主張租賃關係中的一切權利。不用擔心喔。"
-                        mscDICT[message.author]["complete"] = True #結束對話
-                        await message.reply(replySTR)
-                        del mscDICT[message.author] #對話結束，清空mscDICT的user資料
-                        await message.reply("謝謝您使用本Bot，希望我有幫到您，祝您有個美好的一天！")
+                    if "confirm425tb3_BOOL" in lokiResultDICT:
+                        mscDICT[message.author]["confirm425tb3_BOOL"] = lokiResultDICT["confirm425tb3_BOOL"]
+                        if mscDICT[message.author]["confirm425tb3_BOOL"] == False:
+                            replySTR = "出租人(房東)尚未將租賃物(您的租處)的所有權讓與給他人房東仍然租賃所有權人，您可以繼續向原房東主張租賃關係中的一切權利。不用擔心喔。"
+                            mscDICT[message.author]["complete"] = True #結束對話
+                            await message.reply(replySTR)
+                            del mscDICT[message.author] #對話結束，清空mscDICT的user資料
+                            await message.reply("謝謝您使用本Bot，希望我有幫到您，祝您有個美好的一天！")
                         
-                    elif mscDICT[message.author]["confirm425tb3_BOOL"] == True:
-                        replySTR = """根據民法第425條第1項的規定，您的租賃契約對於租賃物的新所有人(新屋主)仍然繼續存在。
-                        新的屋主會成為您的新房東(新的出租人)，您可以依原本的租賃契約繼續就租賃物為使用收益，不用擔心。""".replace(" ","").replace("\n","")
-                        mscDICT[message.author]["complete"] = True #結束對話
+                        elif mscDICT[message.author]["confirm425tb3_BOOL"] == True:
+                            replySTR = """根據民法第425條第1項的規定，您的租賃契約對於租賃物的新所有人(新屋主)仍然繼續存在。
+                                       新的屋主會成為您的新房東(新的出租人)，您可以依原本的租賃契約繼續就租賃物為使用收益，不用擔心。""".replace(" ","").replace("\n","")
+                            mscDICT[message.author]["complete"] = True #結束對話
+                            await message.reply(replySTR)
+                            del mscDICT[message.author] #對話結束，清空mscDICT的user資料
+                            await message.reply("謝謝您使用本Bot，希望我有幫到您，祝您有個美好的一天！")
+                    else: #聽不懂
+                        replySTR = "抱歉，我有點不太懂您的意思，可以請您換一個說法再說一遍嗎？謝謝"
                         await message.reply(replySTR)
-                        del mscDICT[message.author] #對話結束，清空mscDICT的user資料
-                        await message.reply("謝謝您使用本Bot，希望我有幫到您，祝您有個美好的一天！")
                 
                 #(二)429修繕義務的問題        
                 elif mscDICT[message.author]["confirm429_BOOL"] == True: #429的第二輪對話
                     lokiResultDICT = botRunLoki(msgSTR,filterLIST = ["429_tb1"]) #filterLIST只跑429_tb1
-                    mscDICT[message.author]["confirm429tb1_BOOL"] = lokiResultDICT["confirm429tb1_BOOL"]
-                    if mscDICT[message.author]["confirm429tb1_BOOL"] == False:
-                        replySTR = """根據民法第429條第1項的規定，如果您與房東之間沒有特別約定由您負擔修繕義務，則出租人(房東)應負擔修繕租賃物的義務。
-                                   所以您可以定相當期限催告房東來修。如果房東沒有在您訂的期限內處理的話，
-                                   依據民法第430條，您可以自行修繕，之後再向房東請求償還費用，或是直接在租金中扣除修繕費用。""".replace(" ","").replace("\n","")
-                        mscDICT[message.author]["complete"] = True #結束對話
-                        await message.reply(replySTR)
-                        del mscDICT[message.author] #對話結束，清空mscDICT的user資料
-                        await message.reply("謝謝您使用本Bot，希望我有幫到您，祝您有個美好的一天！")
+                    if "confirm429tb1_BOOL" in lokiResultDICT:
+                        mscDICT[message.author]["confirm429tb1_BOOL"] = lokiResultDICT["confirm429tb1_BOOL"]
+                        if mscDICT[message.author]["confirm429tb1_BOOL"] == False:
+                            replySTR = """根據民法第429條第1項的規定，如果您與房東之間沒有特別約定由您負擔修繕義務，則出租人(房東)應負擔修繕租賃物的義務。
+                                       所以您可以定相當期限催告房東來修。如果房東沒有在您訂的期限內處理的話，
+                                       依據民法第430條，您可以自行修繕，之後再向房東請求償還費用，或是直接在租金中扣除修繕費用。""".replace(" ","").replace("\n","")
+                            mscDICT[message.author]["complete"] = True #結束對話
+                            await message.reply(replySTR)
+                            del mscDICT[message.author] #對話結束，清空mscDICT的user資料
+                            await message.reply("謝謝您使用本Bot，希望我有幫到您，祝您有個美好的一天！")
                     
-                    elif mscDICT[message.author]["confirm429tb1_BOOL"] == True:
-                        replySTR = "請注意，您的租賃契約上有約定由您自行負擔修繕義務，所以您必須自行修繕您的租賃物喔。"
-                        mscDICT[message.author]["complete"] = True #結束對話
+                        elif mscDICT[message.author]["confirm429tb1_BOOL"] == True:
+                            replySTR = "請注意，您的租賃契約上有約定由您自行負擔修繕義務，所以您必須自行修繕您的租賃物喔。"
+                            mscDICT[message.author]["complete"] = True #結束對話
+                            await message.reply(replySTR)
+                            del mscDICT[message.author] #對話結束，清空mscDICT的user資料
+                            await message.reply("謝謝您使用本Bot，希望我有幫到您，祝您有個美好的一天！")
+                    else:
+                        replySTR = "抱歉，我有點不太懂您的意思，可以請您換一個說法再說一遍嗎？謝謝"
                         await message.reply(replySTR)
-                        del mscDICT[message.author] #對話結束，清空mscDICT的user資料
-                        await message.reply("謝謝您使用本Bot，希望我有幫到您，祝您有個美好的一天！")
-               
                 
 
 
