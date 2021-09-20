@@ -49,7 +49,6 @@ import json
 import re 
 
 try:
-    from intent import Loki_Probe
     from intent import Loki_425
     from intent import Loki_425_tb1
     from intent import Loki_425_tb2 
@@ -61,7 +60,6 @@ try:
     from intent import Loki_Come_in
     
 except:
-    from .intent import Loki_Probe
     from .intent import Loki_425
     from .intent import Loki_425_tb1
     from .intent import Loki_425_tb2 
