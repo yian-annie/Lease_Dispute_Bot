@@ -102,7 +102,7 @@ class BotClient(discord.Client):
                 else:  #沒有講過話(給他一個新的template)
                     mscDICT[message.author.id] = self.getNewTemplate()
                     mscDICT[message.author.id]["updatetime"] = datetime.datetime.now() #記錄開啟對話的時間
-                    await message.reply("嗨嗨，您好，我是您的租賃法律問題小幫手，請問您又遇到什麼問題了呢？")
+                    await message.reply("嗨嗨，您好，我是您的租賃法律問題小幫手，請問您還有什麼其他問題呢？")
             else: #開始處理正式對話
                 #從這裡開始接上 NLU 模型
                 replySTR = "我是預設的回應字串…你會看到我這串字，肯定是出了什麼錯！"
@@ -195,10 +195,10 @@ class BotClient(discord.Client):
                             await message.reply("謝謝您使用本Bot，希望我有幫到您，祝您有個美好的一天！")
 
                         elif mscDICT[message.author.id]["confirm425tb1_BOOL"] == True:
-                            replySTR = "請問房東是否已將房屋交付給您？例如已經將鑰匙交給您，或是將大門密碼鎖的密碼告知您。" #往下問425_tb2
+                            replySTR = "請問房東是否已將房屋交付給您？例如您已經搬入您的租處，或是房東已經將鑰匙交給您、將大門密碼鎖的密碼告知您。" #往下問425_tb2
                             await message.reply(replySTR)
                     else: #聽不懂
-                        replySTR = "抱歉，我有點不太懂您的意思，可以請您換一個說法再說一遍嗎？謝謝1"
+                        replySTR = "抱歉，我有點不太懂您的意思，可以請您換一個說法再說一遍嗎？謝謝。"
                         await message.reply(replySTR)
 
                 #425的第三輪對話
@@ -219,7 +219,7 @@ class BotClient(discord.Client):
                             replySTR = "請問房東是否已經辦理所有權移轉登記，確實將租賃物(您租屋處)的所有權過戶給他人？" #往下問425_tb3
                             await message.reply(replySTR)
                     else: #聽不懂
-                        replySTR = "抱歉，我有點不太懂您的意思，可以請您換一個說法再說一遍嗎？謝謝2"
+                        replySTR = "抱歉，我有點不太懂您的意思，可以請您換一個說法再說一遍嗎？謝謝。"
                         await message.reply(replySTR)
 
                 #425的第四輪對話
@@ -242,7 +242,7 @@ class BotClient(discord.Client):
                             mscDICT[message.author.id].clear() #對話結束，清空mscDICT的user資料
                             await message.reply("謝謝您使用本Bot，希望我有幫到您，祝您有個美好的一天！")
                     else: #聽不懂
-                        replySTR = "抱歉，我有點不太懂您的意思，可以請您換一個說法再說一遍嗎？謝謝3"
+                        replySTR = "抱歉，我有點不太懂您的意思，可以請您換一個說法再說一遍嗎？謝謝。"
                         await message.reply(replySTR)
 
                 #(二)429修繕義務的問題
@@ -266,7 +266,7 @@ class BotClient(discord.Client):
                             mscDICT[message.author.id].clear() #對話結束，清空mscDICT的user資料
                             await message.reply("謝謝您使用本Bot，希望我有幫到您，祝您有個美好的一天！")
                     else:
-                        replySTR = "抱歉，我有點不太懂您的意思，可以請您換一個說法再說一遍嗎？謝謝4"
+                        replySTR = "抱歉，我有點不太懂您的意思，可以請您換一個說法再說一遍嗎？謝謝。"
                         await message.reply(replySTR)
 
 
