@@ -58,6 +58,7 @@ try:
     from intent import Loki_Security_Deposit
     from intent import Loki_electricity_water_fees
     from intent import Loki_Come_in
+    from intent import Loki_Haunted_House
     
 except:
     from .intent import Loki_425
@@ -68,7 +69,8 @@ except:
     from .intent import Loki_429_tb1
     from .intent import Loki_Security_Deposit
     from .intent import Loki_electricity_water_fees
-    from .intent import Loki_Come_in    
+    from .intent import Loki_Come_in 
+    from .intent import Loki_Haunted_House
 
 with open("account.info", encoding="utf-8") as f:
     accountDICT = json.loads(f.read())

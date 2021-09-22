@@ -109,7 +109,7 @@ class BotClient(discord.Client):
 
                 #第一輪對話(都還不知道使用者要問什麼問題的時候，filterLIST就都跑過所有要確認問題的intent)
                 if mscDICT[message.author.id]["confirm425_BOOL"] == None and mscDICT[message.author.id]["confirm429_BOOL"] == None and mscDICT[message.author.id]["confirm_Security_Deposit_BOOL"] == None and mscDICT[message.author.id]["confirm_fees_BOOL"] == None and mscDICT[message.author.id]["confirm_comein_BOOL"] == None:
-                    lokiResultDICT = botRunLoki(msgSTR,filterLIST = ["425"]+["429"]+["Security_Deposit"]+["electricity_water_fees"]+["Come_in"])
+                    lokiResultDICT = botRunLoki(msgSTR,filterLIST = ["425"]+["429"]+["Security_Deposit"]+["electricity_water_fees"]+["Come_in"]+["Haunted_House"])
                     print("Result => {}".format(lokiResultDICT))
 
                     #將Loki Intent跑出來的結果存入mscDICT
