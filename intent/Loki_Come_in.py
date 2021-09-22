@@ -47,4 +47,28 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "[房東]趁[我]不在帶[人]來看屋":
         resultDICT["confirm_comein_BOOL"] = True
 
+    if utterance == "[房東][任意]帶[人]進來[我][房間]":
+        # write your code here
+        pass
+
+    if utterance == "[房東][擅自]帶[人]進入[我][房間]":
+        # write your code here
+        pass
+
+    if utterance == "[房東][會]亂開[我][房間]的門":
+        # write your code here
+        pass
+
+    if utterance == "[房東][會]跑到[我][房間][裡]":
+        # write your code here
+        pass
+
+    if utterance == "[房東]亂跑進來[我][房間][裡面]":
+        # write your code here
+        pass
+
+    if utterance == "[房東]進[我][房間]":
+        # write your code here
+        pass
+
     return resultDICT

@@ -110,4 +110,36 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "跟房東反應[他][都]擺爛不處理":
         resultDICT["confirm429_BOOL"] = True
 
+    if utterance == "[我]的[房間][一直]在漏水":
+        # write your code here
+        pass
+
+    if utterance == "[房東][都]不來修":
+        # write your code here
+        pass
+
+    if utterance == "[房東][都]不修理":
+        # write your code here
+        pass
+
+    if utterance == "[房東][都]不處理":
+        # write your code here
+        pass
+
+    if utterance == "[房東][都]不解決":
+        # write your code here
+        pass
+
+    if utterance == "[房東]叫我[自己]修":
+        # write your code here
+        pass
+
+    if utterance == "[房東]說[反正][我][也]不[會]用到":
+        # write your code here
+        pass
+
+    if utterance == "壁癌":
+        # write your code here
+        pass
+
     return resultDICT

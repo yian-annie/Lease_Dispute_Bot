@@ -40,4 +40,16 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "約好房東要負責修繕":
         resultDICT["confirm429tb1_BOOL"] = False
 
+    if utterance == "房東要修":
+        # write your code here
+        pass
+
+    if utterance == "房東要負責修":
+        # write your code here
+        pass
+
+    if utterance == "說好[他]要負責修":
+        # write your code here
+        pass
+
     return resultDICT

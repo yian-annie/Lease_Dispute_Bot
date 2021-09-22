@@ -68,4 +68,16 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "電費":
         resultDICT["confirm_fees_BOOL"] = True
 
+    if utterance == "亂記度數":
+        # write your code here
+        pass
+
+    if utterance == "度數亂記":
+        # write your code here
+        pass
+
+    if utterance == "自來水公司的度數":
+        # write your code here
+        pass
+
     return resultDICT

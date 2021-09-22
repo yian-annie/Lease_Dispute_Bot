@@ -65,4 +65,20 @@ def getResult(inputSTR, utterance, args, resultDICT):
         if inputSTR == utterance:
             resultDICT["confirm425tb3_BOOL"] = False        
 
+    if utterance == "[他]說還沒":
+        # write your code here
+        pass
+
+    if utterance == "不是":
+        # write your code here
+        pass
+
+    if utterance == "對":
+        # write your code here
+        pass
+
+    if utterance == "還沒":
+        # write your code here
+        pass
+
     return resultDICT
