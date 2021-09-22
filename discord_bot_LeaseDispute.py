@@ -102,14 +102,14 @@ class BotClient(discord.Client):
                 else:  #沒有講過話(給他一個新的template)
                     mscDICT[message.author.id] = self.getNewTemplate()
                     mscDICT[message.author.id]["updatetime"] = datetime.datetime.now() #記錄開啟對話的時間
-                    await message.reply("嗨嗨，您好，我是您的租賃法律問題小幫手，請問您還有什麼其他問題呢？")
+                    await message.reply("嗨嗨，您好，我是您的租賃法律問題小幫手，請問您遇到了什麼問題呢？")
             else: #開始處理正式對話
                 #從這裡開始接上 NLU 模型
                 replySTR = "我是預設的回應字串…你會看到我這串字，肯定是出了什麼錯！"
 
-                #第一輪對話(都還不知道使用者要問什麼問題的時候，filterLIST就要全部的intent都跑過)
+                #第一輪對話(都還不知道使用者要問什麼問題的時候，filterLIST就都跑過所有要確認問題的intent)
                 if mscDICT[message.author.id]["confirm425_BOOL"] == None and mscDICT[message.author.id]["confirm429_BOOL"] == None and mscDICT[message.author.id]["confirm_Security_Deposit_BOOL"] == None and mscDICT[message.author.id]["confirm_fees_BOOL"] == None and mscDICT[message.author.id]["confirm_comein_BOOL"] == None:
-                    lokiResultDICT = botRunLoki(msgSTR)
+                    lokiResultDICT = botRunLoki(msgSTR,filterLIST = ["425"]+["429"]+["Security_Deposit"]+["electricity_water_fees"]+["Come_in"])
                     print("Result => {}".format(lokiResultDICT))
 
                     #將Loki Intent跑出來的結果存入mscDICT
