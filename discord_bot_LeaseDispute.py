@@ -123,7 +123,8 @@ class BotClient(discord.Client):
                         mscDICT[message.author.id]["confirm_fees_BOOL"] = lokiResultDICT["confirm_fees_BOOL"]
                     if "confirm_comein_BOOL" in lokiResultDICT:
                         mscDICT[message.author.id]["confirm_comein_BOOL"] = lokiResultDICT["confirm_comein_BOOL"]
-
+                    if "confirm_haunted_house_BOOL" in lokiResultDICT:
+                        mscDICT[message.author.id]["confirm_haunted_house_BOOL"] = lokiResultDICT["confirm_haunted_house_BOOL"]
                     #不需要處理多輪對話的租賃問題
                     if mscDICT[message.author.id]["confirm_Security_Deposit_BOOL"] == True:
                         replySTR = """聽起來您的問題與押金有關。其實呢，押金的作用，是為了擔保您(承租人)在租賃關係中所生的租金債務或是損害賠償責任。
@@ -161,7 +162,19 @@ class BotClient(discord.Client):
                         mscDICT[message.author.id].clear() #對話結束，清空mscDICT的user資料
                         print(mscDICT)
                         await message.reply("謝謝您使用本Bot，希望我有幫到您，祝您有個美好的一天！")
-
+                    
+                    elif mscDICT[message.author.id]["confirm_haunted_house_BOOL"] == True:
+                        replySTR = """聽起來您租到凶宅了。依據內政部最新公布的「住宅租賃契約應約定及不得約定事項」，
+                                   您與出租人(房東)在訂立租賃契約時，出租人應向您揭露房屋是否發生過非自然死亡之情事，
+                                   如果出租人沒有在租賃契約上向您揭露，而且您已經確認您租到的是凶宅的話，
+                                   您可以向出租人主張瑕疵擔保責任，看您要選擇減少租金(繼續住)，還是要終止租約(搬走)。
+                                   不論您選擇哪一種，建議您可以寄存證信函通知房東，這是法律上較有力的保存證據的方式。""".replace(" ", "").replace("\n", "")
+                        mscDICT[message.author.id]["complete"] = True #對話結束
+                        await message.reply(replySTR)
+                        mscDICT[message.author.id].clear() #對話結束，清空mscDICT的user資料
+                        print(mscDICT)
+                        await message.reply("謝謝您使用本Bot，希望我有幫到您，祝您有個美好的一天！")
+                        
                     #開始處理需要多輪對話的租賃問題
                     #425的第一輪對話
                     elif mscDICT[message.author.id]["confirm425_BOOL"] == True: #確認問題為425
