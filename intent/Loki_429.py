@@ -29,19 +29,10 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "[他][只]說過[幾天][會][過來]了解":
         resultDICT["confirm429_BOOL"] = True
 
-    if utterance == "[他][完全]沒有想要解決[問題]":
-        resultDICT["confirm429_BOOL"] = True
-
-    if utterance == "[他]卻[只]說不知道":
-        resultDICT["confirm429_BOOL"] = True
-
     if utterance == "[他]說[他][之後][會][過來]看看":
         resultDICT["confirm429_BOOL"] = True
 
     if utterance == "[他]說[以前][都]沒有這樣":
-        resultDICT["confirm429_BOOL"] = True
-
-    if utterance == "[他]說不是[他]的[問題]":
         resultDICT["confirm429_BOOL"] = True
 
     if utterance == "[冷氣]不[能]運轉":
@@ -81,25 +72,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
         resultDICT["confirm429_BOOL"] = True
 
     if utterance == "修繕":
-        resultDICT["confirm429_BOOL"] = True
-
-    if utterance == "房東[都]不來修":
-        resultDICT["confirm429_BOOL"] = True
-
-    if utterance == "房東[都]不修理":
-        resultDICT["confirm429_BOOL"] = True
-
-    if utterance == "房東[都]不處理":
-        resultDICT["confirm429_BOOL"] = True
-
-    if utterance == "房東[都]不解決":
-        resultDICT["confirm429_BOOL"] = True
-
-    if utterance == "房東叫我[自己]修":
-        resultDICT["confirm429_BOOL"] = True
-
-    if utterance == "房東說[反正][我][也]不[會]用到":
-        resultDICT["confirm429_BOOL"] = True
+        resultDICT["confirm429_BOOL"] = True 
 
     if utterance == "有[白蟻]腐蝕":
         resultDICT["confirm429_BOOL"] = True
@@ -111,35 +84,27 @@ def getResult(inputSTR, utterance, args, resultDICT):
         resultDICT["confirm429_BOOL"] = True
 
     if utterance == "[我]的[房間][一直]在漏水":
-        # write your code here
-        pass
+        resultDICT["confirm429_BOOL"] = True
 
     if utterance == "[房東][都]不來修":
-        # write your code here
-        pass
+        resultDICT["confirm429_BOOL"] = True
 
     if utterance == "[房東][都]不修理":
-        # write your code here
-        pass
+        resultDICT["confirm429_BOOL"] = True
 
     if utterance == "[房東][都]不處理":
-        # write your code here
-        pass
+        resultDICT["confirm429_BOOL"] = True
 
     if utterance == "[房東][都]不解決":
-        # write your code here
-        pass
+        resultDICT["confirm429_BOOL"] = True
 
     if utterance == "[房東]叫我[自己]修":
-        # write your code here
-        pass
+        resultDICT["confirm429_BOOL"] = True
 
     if utterance == "[房東]說[反正][我][也]不[會]用到":
-        # write your code here
-        pass
+        resultDICT["confirm429_BOOL"] = True
 
     if utterance == "壁癌":
-        # write your code here
-        pass
+        resultDICT["confirm429_BOOL"] = True
 
     return resultDICT

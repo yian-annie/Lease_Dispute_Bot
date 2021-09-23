@@ -35,7 +35,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
 
    
     if utterance == "[故意]不退還押金":
-       resultDICT["confirm_Security_Deposit_BOOL"] = True
+        resultDICT["confirm_Security_Deposit_BOOL"] = True
 
    
     if utterance == "[遲遲]未收到押金":

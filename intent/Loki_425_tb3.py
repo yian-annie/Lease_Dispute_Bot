@@ -24,19 +24,10 @@ def debugInfo(inputSTR, utterance):
 
 def getResult(inputSTR, utterance, args, resultDICT):
     debugInfo(inputSTR, utterance)
-    resultDICT["confirm425tb3_BOOL"] = None
-    
-    if utterance == "不清楚":
-        if inputSTR == utterance:
-            resultDICT["confirm425tb3_BOOL"] = None        
-
-    if utterance == "不知道":
-        if inputSTR == utterance:
-            resultDICT["confirm425tb3_BOOL"] = None        
+    resultDICT["confirm425tb3_BOOL"] = None   
 
     if utterance == "否":
-        if inputSTR == utterance:
-            resultDICT["confirm425tb3_BOOL"] = False        
+        resultDICT["confirm425tb3_BOOL"] = False        
 
     if utterance == "已經成交了":
         resultDICT["confirm425tb3_BOOL"] = True        
@@ -51,34 +42,27 @@ def getResult(inputSTR, utterance, args, resultDICT):
         resultDICT["confirm425tb3_BOOL"] = True
 
     if utterance == "是":
-        if inputSTR == utterance:
-            resultDICT["confirm425tb3_BOOL"] = True        
+        resultDICT["confirm425tb3_BOOL"] = True        
 
     if utterance == "有":
-        if inputSTR == utterance:
-            resultDICT["confirm425tb3_BOOL"] = True        
+        resultDICT["confirm425tb3_BOOL"] = True        
 
     if utterance == "有辦好過戶了":
         resultDICT["confirm425tb3_BOOL"] = True      
 
     if utterance == "還沒有":
-        if inputSTR == utterance:
-            resultDICT["confirm425tb3_BOOL"] = False        
+        resultDICT["confirm425tb3_BOOL"] = False        
 
     if utterance == "[他]說還沒":
-        # write your code here
-        pass
+        resultDICT["confirm425tb3_BOOL"] = False
 
     if utterance == "不是":
-        # write your code here
-        pass
+        resultDICT["confirm425tb3_BOOL"] = False
 
     if utterance == "對":
-        # write your code here
-        pass
+        resultDICT["confirm425tb3_BOOL"] = True
 
     if utterance == "還沒":
-        # write your code here
-        pass
-
+        resultDICT["confirm425tb3_BOOL"] = False
+        
     return resultDICT

@@ -25,46 +25,35 @@ def debugInfo(inputSTR, utterance):
 def getResult(inputSTR, utterance, args, resultDICT):
     debugInfo(inputSTR, utterance)
     resultDICT["confirm425tb1_BOOL"] = None
-    
-    if utterance == "[只有]口頭說好":
-        resultDICT["confirm425tb1_BOOL"] = None
 
     if utterance == "否":
-        if inputSTR == utterance:
-            resultDICT["confirm425tb1_BOOL"] = False
+        resultDICT["confirm425tb1_BOOL"] = False
 
     if utterance == "已經簽約了":
         resultDICT["confirm425tb1_BOOL"] = True
 
     if utterance == "是":
-        if inputSTR == utterance:
-            resultDICT["confirm425tb1_BOOL"] = True       
+        resultDICT["confirm425tb1_BOOL"] = True       
 
     if utterance == "有書面簽約":
         resultDICT["confirm425tb1_BOOL"] = True
 
     if utterance == "沒有":
-        if inputSTR == utterance:
-            resultDICT["confirm425tb1_BOOL"] = False
+        resultDICT["confirm425tb1_BOOL"] = False
 
     if utterance == "不是":
-        # write your code here
-        pass
-
+        resultDICT["confirm425tb1_BOOL"] = False
+        
     if utterance == "對":
-        # write your code here
-        pass
+        resultDICT["confirm425tb1_BOOL"] = True
 
     if utterance == "有":
-        # write your code here
-        pass
+        resultDICT["confirm425tb1_BOOL"] = True
 
     if utterance == "有寫契約":
-        # write your code here
-        pass
+        resultDICT["confirm425tb1_BOOL"] = True
 
     if utterance == "有簽約了":
-        # write your code here
-        pass
+        resultDICT["confirm425tb1_BOOL"] = True
 
     return resultDICT

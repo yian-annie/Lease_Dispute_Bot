@@ -36,54 +36,42 @@ def getResult(inputSTR, utterance, args, resultDICT):
         resultDICT["confirm425tb2_BOOL"] = True
 
     if utterance == "有":
-        if inputSTR == utterance:
-            resultDICT["confirm425tb2_BOOL"] = True        
+        resultDICT["confirm425tb2_BOOL"] = True        
 
     if utterance == "有交付":
         resultDICT["confirm425tb2_BOOL"] = True
 
     if utterance == "沒有":
-        if inputSTR == utterance:
-            resultDICT["confirm425tb2_BOOL"] = False        
+        resultDICT["confirm425tb2_BOOL"] = False        
 
     if utterance == "[他]有[把]鑰匙給[我]了":
-        # write your code here
-        pass
+        resultDICT["confirm425tb2_BOOL"] = True
 
     if utterance == "[我][早]就已經搬進去了":
-        # write your code here
-        pass
+        resultDICT["confirm425tb2_BOOL"] = True
 
     if utterance == "[我]已經住在[裡面]了":
-        # write your code here
-        pass
+        resultDICT["confirm425tb2_BOOL"] = True
 
     if utterance == "[我]已經拿到鑰匙了":
-        # write your code here
-        pass
+        resultDICT["confirm425tb2_BOOL"] = True
 
     if utterance == "[我]有拿到鑰匙了":
-        # write your code here
-        pass
+        resultDICT["confirm425tb2_BOOL"] = True
 
     if utterance == "不是":
-        # write your code here
-        pass
+        resultDICT["confirm425tb2_BOOL"] = False
 
     if utterance == "否":
-        # write your code here
-        pass
+        resultDICT["confirm425tb2_BOOL"] = False
 
     if utterance == "對":
-        # write your code here
-        pass
+        resultDICT["confirm425tb2_BOOL"] = True
 
     if utterance == "我搬進去了":
-        # write your code here
-        pass
+        resultDICT["confirm425tb2_BOOL"] = True
 
     if utterance == "是":
-        # write your code here
-        pass
+        resultDICT["confirm425tb2_BOOL"] = True
 
     return resultDICT

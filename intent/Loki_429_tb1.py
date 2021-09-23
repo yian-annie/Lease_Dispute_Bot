@@ -30,26 +30,21 @@ def getResult(inputSTR, utterance, args, resultDICT):
         resultDICT["confirm429tb1_BOOL"] = False
 
     if utterance == "有":
-        if inputSTR == utterance:
-            resultDICT["confirm429tb1_BOOL"] = True        
+        resultDICT["confirm429tb1_BOOL"] = True        
 
     if utterance == "沒有":
-        if inputSTR == utterance:
-            resultDICT["confirm429tb1_BOOL"] = False        
+        resultDICT["confirm429tb1_BOOL"] = False        
 
     if utterance == "約好房東要負責修繕":
         resultDICT["confirm429tb1_BOOL"] = False
 
     if utterance == "房東要修":
-        # write your code here
-        pass
+        resultDICT["confirm429tb1_BOOL"] = False
 
     if utterance == "房東要負責修":
-        # write your code here
-        pass
+        resultDICT["confirm429tb1_BOOL"] = False
 
     if utterance == "說好[他]要負責修":
-        # write your code here
-        pass
+        resultDICT["confirm429tb1_BOOL"] = False
 
     return resultDICT
