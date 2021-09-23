@@ -40,20 +40,20 @@
 #### STEP 4 ：建立一個新的專案
 ![建立專案](https://github.com/yian-annie/Lease_Dispute_Bot/blob/main/media/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202021-09-20%20131117.png?raw=true)
 
-#### STEP 5 ：匯入ref檔
-在建立意圖的下面，按**選擇檔案**，匯入全部的ref檔
+#### STEP 5 ：匯入.ref檔
+在建立意圖的下面，按**選擇檔案**，匯入全部的.ref檔(一次可以選10個.ref檔)
 
 (記得先從github上將Lease_Dispute_Bot 的資料夾整個clone下來喔)
 
 然後按**讀取意圖**
-![匯入ref檔](https://github.com/yian-annie/Lease_Dispute_Bot/blob/main/media/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202021-09-20%20131234.png?raw=true)
+![匯入ref檔](https://github.com/yian-annie/Lease_Dispute_Bot/blob/main/media/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202021-09-23%20163925.png?raw=true)
 
 
 這樣所有的intent就都進來了
-![所有的intent](https://github.com/yian-annie/Lease_Dispute_Bot/blob/main/media/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202021-09-20%20131315.png?raw=true)
+![所有的intent](https://github.com/yian-annie/Lease_Dispute_Bot/blob/main/media/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202021-09-23%20164013.png?raw=true)
 
 #### STEP 6 ：生成模型
-進到每一個intent裡面
+進到**每一個**intent裡面
 
 滑到最下面
 
